@@ -1,3 +1,12 @@
+# Wichtig für uns sind:
+# Cluster Spreading Settings in den cmb_samples
+# Und Map Based Movement
+# Cluster definiert nämlich ähnliches zu dem was wir brauchen... nodes die keine neuen Wegpunkte mehr zurückbekommen (und daher stationär sind)
+# und Wegpunkte, die sich bewegen (5 davon). Diese kriegen einen neuen Punkt von der Karte wieder und laufen dann zu diesem neuen Punkt
+# Hier sind wait times definiert, das heißt davon kann man sich sicherlich etwas abschauen
+# Das einzige was ich noch nicht weiß, sind die Räume und diese werden wir aller vorraussicht nach von Hand erstellen müssen...
+# Weil OSM keine konkreten Wege in die Räume beinhaltet
+
 Scenario.name = RumorSpreading
 Scenario.endTime = 1000
 Scenario.updateInterval = 0.1
@@ -9,16 +18,17 @@ Events.nrof = 0
 
 Scenario.nrofHostGroups = 1
 Group1.groupID = x
-Group1.nrofHosts = 1
+Group1.nrofHosts = 50
 Group1.nrofInterfaces = 1
 Group1.interface1 = myInterface
 myInterface.type = SimpleBroadcastInterface
-myInterface.transmitRange = 0
-myInterface.transmitSpeed = 0
+myInterface.transmitRange = 0.5
+myInterface.transmitSpeed = 150k
 Group1.movementModel = MapBasedMovement
 Group1.router = PassiveRouter
 Group1.routeFile = data/TUM_MI_Faculty/tum_mi_l0.wkt
 Group1.routeType = 1
+Group1.waitTime = 10, 100
 
 MapBasedMovement.nrofMapFiles = 1
 MapBasedMovement.mapFile1 = data/TUM_MI_Faculty/tum_mi_l0.wkt
