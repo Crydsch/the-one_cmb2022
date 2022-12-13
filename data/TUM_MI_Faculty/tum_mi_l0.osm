@@ -1,0 +1,1652 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version="0.6" generator="osmfilter 1.4.4">
+	<bounds minlat="48.26177" minlon="11.66651" maxlat="48.26334" maxlon="11.66938"/>
+	<node id="277698457" lat="48.2624177" lon="11.6687363" version="7" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="277698477" lat="48.2626344" lon="11.6674289" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="277698481" lat="48.2622989" lon="11.6690723" version="55" timestamp="2022-10-31T19:09:35Z" changeset="128313277" uid="11758604" user="map per">
+		<tag k="building_entrance:auto_open" v="yes"/>
+		<tag k="door" v="automatic"/>
+		<tag k="entrance" v="secondary"/>
+		<tag k="level" v="0"/>
+	</node>
+	<node id="309746919" lat="48.2625815" lon="11.6688024" version="12" timestamp="2022-05-07T15:44:49Z" changeset="120673397" uid="9841899" user="bloor24">
+		<tag k="building_entrance:auto_open" v="yes"/>
+		<tag k="door" v="automatic"/>
+		<tag k="entrance" v="main"/>
+		<tag k="level" v="0"/>
+	</node>
+	<node id="309746929" lat="48.2627049" lon="11.6669255" version="11" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="building_entrance:auto_open" v="yes"/>
+		<tag k="door" v="automatic"/>
+		<tag k="entrance" v="yes"/>
+	</node>
+	<node id="843765821" lat="48.2625686" lon="11.6672488" version="7" timestamp="2021-11-08T18:38:51Z" changeset="113534065" uid="11758604" user="map per">
+		<tag k="building_entrance:auto_open" v="yes"/>
+		<tag k="entrance" v="yes"/>
+	</node>
+	<node id="843765911" lat="48.2626462" lon="11.6672716" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630198" lat="48.2623904" lon="11.6692875" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630201" lat="48.2626258" lon="11.6670839" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630238" lat="48.2625316" lon="11.6687817" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1204630240" lat="48.2625498" lon="11.6691711" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630252" lat="48.2623626" lon="11.6692323" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630257" lat="48.2624405" lon="11.6689621" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630266" lat="48.2624653" lon="11.6692175" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630277" lat="48.2626176" lon="11.6673313" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0"/>
+	</node>
+	<node id="1204630306" lat="48.2625419" lon="11.6690844" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630307" lat="48.2625378" lon="11.6686753" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630310" lat="48.2626757" lon="11.6671217" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0"/>
+	</node>
+	<node id="1204630326" lat="48.2624628" lon="11.6687531" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630338" lat="48.2624116" lon="11.6692589" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630363" lat="48.2624579" lon="11.6691909" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630399" lat="48.2625275" lon="11.668732" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630410" lat="48.2623774" lon="11.6689948" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630438" lat="48.262489" lon="11.6689637" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630442" lat="48.2625267" lon="11.6683929" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="2"/>
+	</node>
+	<node id="1204630460" lat="48.2625149" lon="11.6691979" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630487" lat="48.2624339" lon="11.6689057" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1204630488" lat="48.2626088" lon="11.6673745" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0.3"/>
+	</node>
+	<node id="1204630521" lat="48.262523" lon="11.6686821" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="-0.5"/>
+	</node>
+	<node id="1204630529" lat="48.2624815" lon="11.6686346" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0.3"/>
+	</node>
+	<node id="1204630564" lat="48.2623439" lon="11.6691755" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630585" lat="48.2625359" lon="11.6686869" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="-0.5"/>
+	</node>
+	<node id="1204630594" lat="48.2626274" lon="11.6670438" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1204630598" lat="48.2623841" lon="11.6692978" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630612" lat="48.2625191" lon="11.6690179" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630631" lat="48.262533" lon="11.6683589" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="2.3"/>
+	</node>
+	<node id="1204630658" lat="48.2625573" lon="11.6692106" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630685" lat="48.2625905" lon="11.6674743" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="1"/>
+	</node>
+	<node id="1204630692" lat="48.2624975" lon="11.6688179" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0"/>
+	</node>
+	<node id="1204630695" lat="48.2625635" lon="11.6676197" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="2.3"/>
+	</node>
+	<node id="1204630724" lat="48.2624968" lon="11.6685536" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="1"/>
+	</node>
+	<node id="1204630728" lat="48.2623378" lon="11.6691346" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630747" lat="48.2623507" lon="11.6692004" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630760" lat="48.2623472" lon="11.6684165" version="6" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1204630771" lat="48.2625246" lon="11.6684036" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630791" lat="48.2623545" lon="11.6690076" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630802" lat="48.2625316" lon="11.6690475" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630848" lat="48.2625468" lon="11.6682834" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630871" lat="48.2623718" lon="11.6692529" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630876" lat="48.2625839" lon="11.6675089" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="1.3"/>
+	</node>
+	<node id="1204630909" lat="48.2625004" lon="11.6688766" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630923" lat="48.2625509" lon="11.6676879" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="3"/>
+	</node>
+	<node id="1204630965" lat="48.2625073" lon="11.6684963" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="1.3"/>
+	</node>
+	<node id="1204630967" lat="48.2625469" lon="11.6691089" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630970" lat="48.262358" lon="11.6692222" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204630985" lat="48.2623154" lon="11.6689606" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631000" lat="48.2624562" lon="11.6692229" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631009" lat="48.262336" lon="11.6690464" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631052" lat="48.2625388" lon="11.669072" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631081" lat="48.26253" lon="11.6687175" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="-1"/>
+	</node>
+	<node id="1204631173" lat="48.2623058" lon="11.6690311" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1204631184" lat="48.2625493" lon="11.6691344" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631197" lat="48.2623666" lon="11.6692424" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631219" lat="48.2624267" lon="11.6690632" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631231" lat="48.2624907" lon="11.6692052" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631248" lat="48.2625024" lon="11.6688659" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="-0.5"/>
+	</node>
+	<node id="1204631260" lat="48.2626117" lon="11.6673588" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0.3"/>
+	</node>
+	<node id="1204631272" lat="48.2625447" lon="11.6690963" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631275" lat="48.2625246" lon="11.6686703" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631303" lat="48.2624765" lon="11.6686618" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0"/>
+	</node>
+	<node id="1204631316" lat="48.2625478" lon="11.6677052" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631319" lat="48.2623553" lon="11.6689468" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1204631345" lat="48.2626455" lon="11.6671135" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1204631356" lat="48.2626994" lon="11.6669683" version="5" timestamp="2021-11-14T10:19:56Z" changeset="113757039" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1204631374" lat="48.2625498" lon="11.6691577" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631384" lat="48.2623661" lon="11.6689693" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631416" lat="48.2625361" lon="11.669196" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631448" lat="48.2625972" lon="11.6674392" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="1"/>
+	</node>
+	<node id="1204631454" lat="48.2625152" lon="11.6687241" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0"/>
+	</node>
+	<node id="1204631462" lat="48.2625003" lon="11.6685345" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631466" lat="48.2624844" lon="11.6686188" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0.3"/>
+	</node>
+	<node id="1204631487" lat="48.2623351" lon="11.6690929" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631508" lat="48.2623967" lon="11.6692772" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631546" lat="48.2624075" lon="11.668978" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631586" lat="48.2625104" lon="11.6688189" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631615" lat="48.2624791" lon="11.6689535" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631618" lat="48.2625199" lon="11.6684284" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="2"/>
+	</node>
+	<node id="1204631643" lat="48.2625483" lon="11.6691989" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631673" lat="48.2625867" lon="11.6674938" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="1.3"/>
+	</node>
+	<node id="1204631681" lat="48.2624875" lon="11.6688711" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631722" lat="48.2625036" lon="11.6685165" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="1"/>
+	</node>
+	<node id="1204631731" lat="48.2623389" lon="11.66915" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631780" lat="48.2623412" lon="11.6691621" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631816" lat="48.2623385" lon="11.6690255" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631821" lat="48.2625603" lon="11.6692124" version="3" timestamp="2022-07-27T08:22:02Z" changeset="124127521" uid="6830423" user="dirrgang">
+		<tag k="entrance" v="yes"/>
+	</node>
+	<node id="1204631841" lat="48.2625034" lon="11.6689862" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631850" lat="48.2625063" lon="11.6687712" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631857" lat="48.2625973" lon="11.6672602" version="6" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1204631859" lat="48.2623789" lon="11.6689562" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1204631879" lat="48.2625306" lon="11.6683735" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="2.3"/>
+	</node>
+	<node id="1204631887" lat="48.262461" lon="11.6689532" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631903" lat="48.2623767" lon="11.6692638" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631927" lat="48.2625738" lon="11.6675617" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="2"/>
+	</node>
+	<node id="1204631932" lat="48.2625083" lon="11.6688343" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="-1"/>
+	</node>
+	<node id="1204631944" lat="48.2625667" lon="11.6676002" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="2"/>
+	</node>
+	<node id="1204631953" lat="48.2625096" lon="11.6684833" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="1.3"/>
+	</node>
+	<node id="1204631957" lat="48.2625482" lon="11.669121" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204631993" lat="48.2623468" lon="11.669188" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204632030" lat="48.2626331" lon="11.667109" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204632058" lat="48.2625264" lon="11.6690346" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204632081" lat="48.2624106" lon="11.6689917" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204632087" lat="48.2625425" lon="11.668307" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="3"/>
+	</node>
+	<node id="1204632135" lat="48.2623342" lon="11.6689076" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204632183" lat="48.2625605" lon="11.6676346" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="2.3"/>
+	</node>
+	<node id="1204632223" lat="48.2625496" lon="11.6691455" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204632242" lat="48.2623537" lon="11.6692111" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204632271" lat="48.2624348" lon="11.6692396" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1204632304" lat="48.2624896" lon="11.66886" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="-0.5"/>
+	</node>
+	<node id="1204632313" lat="48.2625356" lon="11.6690594" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223094831" lat="48.2625473" lon="11.6686165" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223094832" lat="48.2625855" lon="11.6682956" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223094833" lat="48.262651" lon="11.6677465" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223094836" lat="48.2626171" lon="11.6671512" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223094844" lat="48.2625705" lon="11.6684204" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223094846" lat="48.2627825" lon="11.6666422" version="4" timestamp="2021-11-08T18:33:11Z" changeset="113533868" uid="11758604" user="map per"/>
+	<node id="1223094848" lat="48.2625734" lon="11.6673921" version="3" timestamp="2022-07-08T18:15:44Z" changeset="123377006" uid="11758604" user="map per"/>
+	<node id="1223094857" lat="48.2622384" lon="11.6691929" version="4" timestamp="2022-08-05T12:14:00Z" changeset="124520692" uid="6830423" user="dirrgang">
+		<tag k="entrance" v="yes"/>
+		<tag k="level" v="-1"/>
+		<tag k="wheelchair" v="no"/>
+	</node>
+	<node id="1223094860" lat="48.2623941" lon="11.6683566" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223094862" lat="48.2624163" lon="11.6682404" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223094865" lat="48.2625399" lon="11.6675733" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223094875" lat="48.2623683" lon="11.6684978" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223094878" lat="48.2626676" lon="11.6676079" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223094880" lat="48.2625638" lon="11.6674451" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223094884" lat="48.2625553" lon="11.6685496" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223094886" lat="48.2625177" lon="11.6676927" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223094887" lat="48.2626811" lon="11.6674938" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223127843" lat="48.2622771" lon="11.6687237" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223127846" lat="48.2622503" lon="11.6687081" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0.75"/>
+	</node>
+	<node id="1223127847" lat="48.2622796" lon="11.6687084" version="3" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84"/>
+	<node id="1223127849" lat="48.2622304" lon="11.6686944" version="7" timestamp="2022-07-20T11:00:17Z" changeset="123845820" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+		<tag k="indoor" v="door"/>
+		<tag k="level" v="0"/>
+	</node>
+	<node id="1223127852" lat="48.2622678" lon="11.6687538" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0.25"/>
+	</node>
+	<node id="1223127853" lat="48.262229" lon="11.6687472" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223127854" lat="48.2622258" lon="11.668719" version="7" timestamp="2022-07-20T11:00:17Z" changeset="123845820" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+		<tag k="indoor" v="door"/>
+		<tag k="level" v="0"/>
+	</node>
+	<node id="1223127856" lat="48.2622443" lon="11.6687442" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223127859" lat="48.262269" lon="11.6687056" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="1"/>
+	</node>
+	<node id="1223127860" lat="48.2622812" lon="11.6686977" version="3" timestamp="2022-07-20T11:00:17Z" changeset="123845820" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+		<tag k="indoor" v="door"/>
+		<tag k="level" v="0"/>
+	</node>
+	<node id="1223127863" lat="48.2622283" lon="11.6687505" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223127868" lat="48.2623397" lon="11.6686823" version="7" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223127874" lat="48.2622467" lon="11.6686946" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223127878" lat="48.2622734" lon="11.6687488" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0.25"/>
+	</node>
+	<node id="1223127891" lat="48.2622484" lon="11.6687459" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0.5"/>
+	</node>
+	<node id="1223127895" lat="48.2622724" lon="11.6687557" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223127901" lat="48.2622455" lon="11.6687369" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0.5"/>
+	</node>
+	<node id="1223127906" lat="48.2623353" lon="11.668706" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223127907" lat="48.2622589" lon="11.6687009" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0.75"/>
+	</node>
+	<node id="1223127908" lat="48.2622383" lon="11.6686978" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223127909" lat="48.2622395" lon="11.6686913" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223127911" lat="48.2622338" lon="11.6687217" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1223127914" lat="48.262252" lon="11.6686978" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1224163260" lat="48.2625375" lon="11.6680269" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1224163272" lat="48.262396" lon="11.6681279" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1224163274" lat="48.2625095" lon="11.6681993" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1224163285" lat="48.2623784" lon="11.6681211" version="4" timestamp="2022-07-27T13:02:41Z" changeset="124140811" uid="11758604" user="map per">
+		<tag k="entrance" v="yes"/>
+	</node>
+	<node id="1224163299" lat="48.262513" lon="11.6681774" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1224163304" lat="48.2619166" lon="11.6685462" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1224163323" lat="48.2618826" lon="11.6685408" version="3" timestamp="2022-07-27T08:29:19Z" changeset="124127521" uid="6830423" user="dirrgang">
+		<tag k="entrance" v="yes"/>
+	</node>
+	<node id="1224163326" lat="48.262596" lon="11.6682188" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1224163378" lat="48.2625005" lon="11.6682534" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1224163393" lat="48.2618837" lon="11.6685412" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1235752285" lat="48.2622693" lon="11.6688374" version="5" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1235752286" lat="48.2622483" lon="11.6687476" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="-0.33"/>
+	</node>
+	<node id="1235752287" lat="48.2622877" lon="11.6688449" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="-0.3"/>
+	</node>
+	<node id="1235752288" lat="48.2622738" lon="11.6687488" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="-0.66"/>
+	</node>
+	<node id="1235752289" lat="48.2622725" lon="11.6687573" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1235752290" lat="48.2622534" lon="11.6686973" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1235752291" lat="48.262282" lon="11.6686979" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1235752292" lat="48.2623575" lon="11.6684044" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1235752293" lat="48.2622462" lon="11.6687373" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="-0.33"/>
+	</node>
+	<node id="1235752294" lat="48.2623695" lon="11.6684407" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0"/>
+	</node>
+	<node id="1235752295" lat="48.26228" lon="11.6688244" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1235752296" lat="48.2622677" lon="11.6687553" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="-0.66"/>
+	</node>
+	<node id="1235752297" lat="48.2622918" lon="11.668861" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0"/>
+	</node>
+	<node id="1235752298" lat="48.2622795" lon="11.6687166" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="-1"/>
+	</node>
+	<node id="1235752299" lat="48.2622517" lon="11.6687087" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="0"/>
+	</node>
+	<node id="1235752300" lat="48.2623656" lon="11.6684243" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="level" v="-0.3"/>
+	</node>
+	<node id="1235752301" lat="48.2622445" lon="11.6687462" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1352577869" lat="48.2619151" lon="11.6685549" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353022899" lat="48.2622695" lon="11.6685694" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+		<tag k="entrance" v="yes"/>
+		<tag k="level" v="-1"/>
+	</node>
+	<node id="1353022998" lat="48.2623226" lon="11.6683234" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023000" lat="48.2623247" lon="11.6683133" version="4" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84"/>
+	<node id="1353023013" lat="48.2623296" lon="11.66829" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023014" lat="48.2623271" lon="11.6683249" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023029" lat="48.262332" lon="11.6682784" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023049" lat="48.2623365" lon="11.6684722" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1353023077" lat="48.2623458" lon="11.6683326" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023089" lat="48.2623472" lon="11.668545" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1353023094" lat="48.2623511" lon="11.6683347" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023101" lat="48.262352" lon="11.6683288" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023120" lat="48.2623586" lon="11.6685499" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023125" lat="48.2623586" lon="11.6682901" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023155" lat="48.2623701" lon="11.6684322" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1353023157" lat="48.2623707" lon="11.6684846" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023181" lat="48.2623796" lon="11.6684361" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023192" lat="48.2623861" lon="11.6683432" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1353023194" lat="48.2623885" lon="11.6683859" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023210" lat="48.2623959" lon="11.6683467" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023220" lat="48.2624075" lon="11.668283" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023228" lat="48.262413" lon="11.6682568" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023249" lat="48.2624216" lon="11.6682109" version="4" timestamp="2022-07-08T18:26:00Z" changeset="123377284" uid="11758604" user="map per"/>
+	<node id="1353023264" lat="48.2624361" lon="11.6681295" version="3" timestamp="2022-07-08T18:26:00Z" changeset="123377284" uid="11758604" user="map per"/>
+	<node id="1353023277" lat="48.2624485" lon="11.6680631" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023285" lat="48.2624558" lon="11.6679619" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1353023287" lat="48.2624573" lon="11.668016" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023291" lat="48.2624665" lon="11.6679664" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353023298" lat="48.2624955" lon="11.6682877" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353032685" lat="48.262324" lon="11.6683166" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353032697" lat="48.2623296" lon="11.6682898" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353032703" lat="48.2623268" lon="11.6683248" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353032704" lat="48.2623296" lon="11.6682896" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353032706" lat="48.2623265" lon="11.6683246" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353032756" lat="48.2623365" lon="11.6682802" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353032808" lat="48.2623397" lon="11.6686822" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353032871" lat="48.2623478" lon="11.6682852" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353032895" lat="48.262352" lon="11.6683289" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353032903" lat="48.2623519" lon="11.6683294" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353032938" lat="48.2623551" lon="11.6686031" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353032945" lat="48.2623563" lon="11.6683034" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353032947" lat="48.2623564" lon="11.6683033" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353032996" lat="48.2623605" lon="11.6682788" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353033000" lat="48.2623605" lon="11.6682791" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353033002" lat="48.2623605" lon="11.668279" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353033136" lat="48.2623791" lon="11.6683821" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1353033284" lat="48.2624134" lon="11.6680504" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1353033317" lat="48.2624167" lon="11.6682582" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1353033326" lat="48.2624256" lon="11.6681256" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1353033374" lat="48.262447" lon="11.6680118" version="4" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per">
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="1376262570" lat="48.262294" lon="11.6688786" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1376262571" lat="48.2623114" lon="11.6688942" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1376262580" lat="48.2623864" lon="11.6684751" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1376262588" lat="48.2624572" lon="11.6685107" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1376385380" lat="48.2622837" lon="11.6686859" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="1376385381" lat="48.2623354" lon="11.6687062" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="2096246166" lat="48.262702" lon="11.667318" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="2096246169" lat="48.2627208" lon="11.6671605" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="2096246176" lat="48.2627287" lon="11.6670938" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="2496758180" lat="48.2625699" lon="11.6675814" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="2496758181" lat="48.2625938" lon="11.6674578" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="3837113187" lat="48.2625158" lon="11.6677028" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="3837113188" lat="48.262508" lon="11.6677446" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="3837113189" lat="48.2625094" lon="11.6677372" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="3837113194" lat="48.2625156" lon="11.6681612" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="3837113195" lat="48.2625271" lon="11.6680908" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="3837113202" lat="48.2625528" lon="11.6679323" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="3837113204" lat="48.2625503" lon="11.6679478" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="5846152152" lat="48.2625654" lon="11.6678544" version="3" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="5846158498" lat="48.2625114" lon="11.6681877" version="2" timestamp="2021-11-07T06:54:23Z" changeset="113468520" uid="11758604" user="map per"/>
+	<node id="9764022675" lat="48.2622794" lon="11.6687102" version="1" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84"/>
+	<node id="9804272253" lat="48.2627825" lon="11.6666422" version="1" timestamp="2022-06-08T16:24:19Z" changeset="122125947" uid="11758604" user="map per"/>
+	<node id="9804272254" lat="48.2627825" lon="11.6666422" version="1" timestamp="2022-06-08T16:24:19Z" changeset="122125947" uid="11758604" user="map per"/>
+	<node id="9874980134" lat="48.2625803" lon="11.6673622" version="1" timestamp="2022-07-08T18:15:44Z" changeset="123377006" uid="11758604" user="map per"/>
+	<node id="9874994470" lat="48.2625473" lon="11.6686165" version="1" timestamp="2022-07-08T18:12:11Z" changeset="123376893" uid="11758604" user="map per"/>
+	<node id="9874994471" lat="48.2625473" lon="11.6686165" version="1" timestamp="2022-07-08T18:12:11Z" changeset="123376893" uid="11758604" user="map per"/>
+	<node id="9875010189" lat="48.2624665" lon="11.6679664" version="1" timestamp="2022-07-08T18:26:00Z" changeset="123377284" uid="11758604" user="map per"/>
+	<node id="9875010190" lat="48.2624665" lon="11.6679664" version="1" timestamp="2022-07-08T18:26:00Z" changeset="123377284" uid="11758604" user="map per"/>
+	<way id="104405100" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630521"/>
+		<nd ref="1204631454"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405101" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630442"/>
+		<nd ref="1204631879"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405102" version="5" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="843765911"/>
+		<nd ref="1204630277"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="104405103" version="8" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1204631009"/>
+		<nd ref="1204631487"/>
+		<nd ref="1204630728"/>
+		<nd ref="1204631731"/>
+		<nd ref="1204631780"/>
+		<nd ref="1204630564"/>
+		<nd ref="1204631993"/>
+		<nd ref="1204630747"/>
+		<nd ref="1204632242"/>
+		<nd ref="1204630970"/>
+		<nd ref="1204630252"/>
+		<nd ref="1204631197"/>
+		<nd ref="1204630871"/>
+		<nd ref="1204631903"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-1"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405104" version="5" timestamp="2021-11-14T10:19:56Z" changeset="113757039" uid="11758604" user="map per">
+		<nd ref="843765821"/>
+		<nd ref="1204631857"/>
+		<nd ref="843765911"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="104405108" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630876"/>
+		<nd ref="1204631927"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405110" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204631722"/>
+		<nd ref="1204630965"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405112" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204631466"/>
+		<nd ref="1204630724"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405115" version="5" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204631586"/>
+		<nd ref="1204631932"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-1"/>
+	</way>
+	<way id="104405119" version="6" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204631248"/>
+		<nd ref="1204630909"/>
+		<nd ref="1204631681"/>
+		<nd ref="1204632304"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-0.5"/>
+	</way>
+	<way id="104405120" version="6" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630695"/>
+		<nd ref="1204632183"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2.3"/>
+	</way>
+	<way id="104405121" version="6" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1223094832"/>
+		<nd ref="1204630848"/>
+		<nd ref="1223094862"/>
+		<tag k="bridge" v="yes"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="layer" v="3"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="104405122" version="6" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630585"/>
+		<nd ref="1204630307"/>
+		<nd ref="1204631275"/>
+		<nd ref="1204630521"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-0.5"/>
+	</way>
+	<way id="104405124" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1204631643"/>
+		<nd ref="1204630658"/>
+		<nd ref="1204631821"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-1"/>
+		<tag k="oneway" v="yes"/>
+	</way>
+	<way id="104405125" version="6" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204631673"/>
+		<nd ref="1204630876"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1.3"/>
+	</way>
+	<way id="104405128" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1204630257"/>
+		<nd ref="1204631546"/>
+		<nd ref="1204630410"/>
+		<nd ref="1204630791"/>
+		<nd ref="1204631816"/>
+		<nd ref="1204631009"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="104405129" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1223094887"/>
+		<nd ref="2496758181"/>
+		<nd ref="1223094880"/>
+		<tag k="bridge" v="yes"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="layer" v="1"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="104405130" version="6" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1204630363"/>
+		<nd ref="1204630266"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-1"/>
+	</way>
+	<way id="104405131" version="5" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204632087"/>
+		<nd ref="1204630848"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="104405134" version="6" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630529"/>
+		<nd ref="1204631466"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0.3"/>
+	</way>
+	<way id="104405136" version="6" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1223094833"/>
+		<nd ref="1204631316"/>
+		<nd ref="1223094886"/>
+		<tag k="bridge" v="yes"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="layer" v="3"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="104405137" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204632304"/>
+		<nd ref="1204630692"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405138" version="8" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1204630438"/>
+		<nd ref="1204631841"/>
+		<nd ref="1204630612"/>
+		<nd ref="1204632058"/>
+		<nd ref="1204630802"/>
+		<nd ref="1204632313"/>
+		<nd ref="1204631052"/>
+		<nd ref="1204630306"/>
+		<nd ref="1204631272"/>
+		<nd ref="1204630967"/>
+		<nd ref="1204631957"/>
+		<nd ref="1204631184"/>
+		<nd ref="1204632223"/>
+		<nd ref="1204631374"/>
+		<nd ref="1204630240"/>
+		<nd ref="1204631643"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-1"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405139" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630488"/>
+		<nd ref="1204631448"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405145" version="8" timestamp="2021-02-14T19:14:49Z" changeset="99263683" uid="531886" user="drlellinger">
+		<nd ref="277698481"/>
+		<nd ref="1204631173"/>
+		<nd ref="1204630985"/>
+		<nd ref="1204632135"/>
+		<nd ref="277698457"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="104405147" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1204631546"/>
+		<nd ref="1204632081"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="104405148" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204631944"/>
+		<nd ref="1204630695"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405152" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1204631618"/>
+		<nd ref="1204630771"/>
+		<nd ref="1204630442"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="104405153" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1223094878"/>
+		<nd ref="2496758180"/>
+		<nd ref="1223094865"/>
+		<tag k="bridge" v="yes"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="layer" v="2"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="104405156" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204631081"/>
+		<nd ref="1204630585"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405191" version="5" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630399"/>
+		<nd ref="1204631081"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-1"/>
+	</way>
+	<way id="104405211" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630685"/>
+		<nd ref="1204631673"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405213" version="6" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1204631903"/>
+		<nd ref="1204630198"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-1"/>
+	</way>
+	<way id="104405214" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1204631384"/>
+		<nd ref="1204631859"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="104405215" version="8" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1204632081"/>
+		<nd ref="1204631219"/>
+		<nd ref="1204630363"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-1"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405217" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630631"/>
+		<nd ref="1204632087"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405218" version="3" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1204630310"/>
+		<nd ref="1204631345"/>
+		<nd ref="1204632030"/>
+		<nd ref="1204630201"/>
+		<nd ref="1204630594"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="104405219" version="5" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204631454"/>
+		<nd ref="1204631850"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="104405221" version="6" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204631260"/>
+		<nd ref="1204630488"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0.3"/>
+	</way>
+	<way id="104405224" version="6" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204631927"/>
+		<nd ref="2496758180"/>
+		<nd ref="1204631944"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="104405225" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204631953"/>
+		<nd ref="1204631618"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405227" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204631303"/>
+		<nd ref="1204630529"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405229" version="5" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630923"/>
+		<nd ref="1204631316"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="104405232" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1204630410"/>
+		<nd ref="1204631384"/>
+		<nd ref="1204631319"/>
+		<nd ref="1204632135"/>
+		<nd ref="1376262571"/>
+		<nd ref="1376262570"/>
+		<nd ref="1235752297"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="104405241" version="6" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204631448"/>
+		<nd ref="2496758181"/>
+		<nd ref="1204630685"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="104405247" version="6" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204631879"/>
+		<nd ref="1204630631"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2.3"/>
+	</way>
+	<way id="104405254" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630277"/>
+		<nd ref="1204631260"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405255" version="5" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630438"/>
+		<nd ref="1204631615"/>
+		<nd ref="1204631887"/>
+		<nd ref="1204630257"/>
+		<nd ref="1204630487"/>
+		<nd ref="1204630326"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="104405258" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1204630598"/>
+		<nd ref="1204630198"/>
+		<nd ref="1204631508"/>
+		<nd ref="1204630338"/>
+		<nd ref="1204632271"/>
+		<nd ref="1204631000"/>
+		<nd ref="1204630266"/>
+		<nd ref="1204631231"/>
+		<nd ref="1204630460"/>
+		<nd ref="1204631416"/>
+		<nd ref="1204631643"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-1"/>
+	</way>
+	<way id="104405259" version="6" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1204630965"/>
+		<nd ref="1204631953"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1.3"/>
+	</way>
+	<way id="104405261" version="5" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630724"/>
+		<nd ref="1204631462"/>
+		<nd ref="1204631722"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="104405262" version="6" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1223094844"/>
+		<nd ref="1204630771"/>
+		<nd ref="1223094860"/>
+		<tag k="bridge" v="yes"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="layer" v="2"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="104405263" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204631932"/>
+		<nd ref="1204631248"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405271" version="7" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204632183"/>
+		<nd ref="1204630923"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="104405272" version="6" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1223094884"/>
+		<nd ref="1204631462"/>
+		<nd ref="1223094875"/>
+		<tag k="bridge" v="yes"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="layer" v="1"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="104405275" version="5" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630692"/>
+		<nd ref="1204631850"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="106268653" version="12" timestamp="2022-07-08T18:12:11Z" changeset="123376893" uid="11758604" user="map per">
+		<nd ref="1223094846"/>
+		<nd ref="2096246176"/>
+		<nd ref="2096246169"/>
+		<nd ref="2096246166"/>
+		<nd ref="1223094887"/>
+		<nd ref="1223094884"/>
+		<nd ref="1223094831"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="106268656" version="15" timestamp="2022-07-20T11:22:49Z" changeset="123846740" uid="11758604" user="map per">
+		<nd ref="1223094857"/>
+		<nd ref="1353023120"/>
+		<nd ref="1353023157"/>
+		<nd ref="1353023181"/>
+		<nd ref="1353023194"/>
+		<nd ref="1353023210"/>
+		<nd ref="1353023220"/>
+		<nd ref="1353023228"/>
+		<nd ref="1223094862"/>
+		<nd ref="1353023249"/>
+		<nd ref="1353023264"/>
+		<nd ref="1353023277"/>
+		<nd ref="1353023287"/>
+		<nd ref="1353023291"/>
+		<nd ref="3837113188"/>
+		<nd ref="3837113189"/>
+		<nd ref="3837113187"/>
+		<nd ref="1223094886"/>
+		<nd ref="1223094848"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="106268662" version="9" timestamp="2022-07-08T18:12:11Z" changeset="123376893" uid="11758604" user="map per">
+		<nd ref="9804272253"/>
+		<nd ref="1223094878"/>
+		<nd ref="1223094844"/>
+		<nd ref="9874994470"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="106268675" version="11" timestamp="2022-07-08T18:12:11Z" changeset="123376893" uid="11758604" user="map per">
+		<nd ref="9804272254"/>
+		<nd ref="1223094833"/>
+		<nd ref="1223094832"/>
+		<nd ref="9874994471"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="106268682" version="7" timestamp="2022-07-08T18:15:44Z" changeset="123377006" uid="11758604" user="map per">
+		<nd ref="9874980134"/>
+		<nd ref="1223094836"/>
+		<tag k="bridge" v="yes"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="106273110" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1223127878"/>
+		<nd ref="1223127895"/>
+		<nd ref="1223127852"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0.25"/>
+	</way>
+	<way id="106273111" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1223127911"/>
+		<nd ref="1223127854"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="106273113" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1223127847"/>
+		<nd ref="9764022675"/>
+		<nd ref="1223127843"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="106273115" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1223127846"/>
+		<nd ref="1223127914"/>
+		<nd ref="1223127907"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0.75"/>
+	</way>
+	<way id="106273116" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1223127908"/>
+		<nd ref="1223127849"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="106273118" version="5" timestamp="2021-10-23T10:20:22Z" changeset="112868473" uid="11758604" user="map per">
+		<nd ref="1223127852"/>
+		<nd ref="1223127891"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="106273120" version="6" timestamp="2021-10-23T10:20:22Z" changeset="112868473" uid="11758604" user="map per">
+		<nd ref="1223127907"/>
+		<nd ref="1223127859"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="106273127" version="9" timestamp="2022-07-27T14:53:41Z" changeset="124145476" uid="11758604" user="map per">
+		<nd ref="1204630985"/>
+		<nd ref="1376262571"/>
+		<nd ref="1223127906"/>
+		<nd ref="1223127868"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="106273128" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1223127891"/>
+		<nd ref="1223127856"/>
+		<nd ref="1223127901"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0.5"/>
+	</way>
+	<way id="106273129" version="7" timestamp="2022-07-20T11:00:17Z" changeset="123845820" uid="11758604" user="map per">
+		<nd ref="1223127860"/>
+		<nd ref="1223127847"/>
+		<nd ref="1235752290"/>
+		<nd ref="1223127874"/>
+		<nd ref="1223127909"/>
+		<nd ref="1223127908"/>
+		<nd ref="1223127911"/>
+		<nd ref="1223127853"/>
+		<nd ref="1223127863"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="106273131" version="5" timestamp="2021-10-23T10:20:22Z" changeset="112868473" uid="11758604" user="map per">
+		<nd ref="1223127843"/>
+		<nd ref="1223127878"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="106273136" version="5" timestamp="2021-10-23T10:20:22Z" changeset="112868473" uid="11758604" user="map per">
+		<nd ref="1223127901"/>
+		<nd ref="1223127846"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="106374200" version="11" timestamp="2021-11-14T10:22:05Z" changeset="113757084" uid="11758604" user="map per">
+		<nd ref="309746919"/>
+		<nd ref="1204630238"/>
+		<nd ref="1204631850"/>
+		<nd ref="1204630326"/>
+		<nd ref="277698457"/>
+		<nd ref="1376262588"/>
+		<nd ref="1353023298"/>
+		<nd ref="1224163378"/>
+		<nd ref="1224163274"/>
+		<nd ref="5846158498"/>
+		<nd ref="1224163299"/>
+		<nd ref="3837113194"/>
+		<nd ref="3837113195"/>
+		<nd ref="1224163260"/>
+		<nd ref="3837113204"/>
+		<nd ref="3837113202"/>
+		<nd ref="5846152152"/>
+		<nd ref="277698477"/>
+		<nd ref="843765911"/>
+		<nd ref="1204630310"/>
+		<nd ref="1204631356"/>
+		<nd ref="309746929"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+		<tag k="smoothness" v="excellent"/>
+		<tag k="surface" v="stone"/>
+	</way>
+	<way id="106374209" version="6" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1224163304"/>
+		<nd ref="1352577869"/>
+		<nd ref="1224163393"/>
+		<nd ref="1224163323"/>
+		<tag k="access" v="emergency"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="106374231" version="7" timestamp="2022-07-27T13:02:41Z" changeset="124140811" uid="11758604" user="map per">
+		<nd ref="1224163272"/>
+		<nd ref="1224163285"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="106374246" version="5" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1224163326"/>
+		<nd ref="1224163274"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="106374250" version="8" timestamp="2022-07-08T18:26:00Z" changeset="123377284" uid="11758604" user="map per">
+		<nd ref="1224163272"/>
+		<nd ref="1224163299"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="107532487" version="4" timestamp="2021-10-23T10:20:22Z" changeset="112868473" uid="11758604" user="map per">
+		<nd ref="1235752287"/>
+		<nd ref="1235752297"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="107532489" version="4" timestamp="2021-10-23T10:20:22Z" changeset="112868473" uid="11758604" user="map per">
+		<nd ref="1235752300"/>
+		<nd ref="1235752294"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="107532491" version="3" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1235752285"/>
+		<nd ref="1235752295"/>
+		<nd ref="1235752287"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-0.3"/>
+	</way>
+	<way id="107532493" version="3" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1204630760"/>
+		<nd ref="1235752292"/>
+		<nd ref="1235752300"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-0.3"/>
+	</way>
+	<way id="107532494" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353032808"/>
+		<nd ref="1376385381"/>
+		<nd ref="1376385380"/>
+		<nd ref="1235752291"/>
+		<nd ref="1235752298"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-1"/>
+	</way>
+	<way id="108438038" version="3" timestamp="2021-10-23T10:20:22Z" changeset="112868473" uid="11758604" user="map per">
+		<nd ref="1235752296"/>
+		<nd ref="1235752286"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="108438040" version="3" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1235752288"/>
+		<nd ref="1235752289"/>
+		<nd ref="1235752296"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-0.66"/>
+	</way>
+	<way id="108438042" version="3" timestamp="2021-10-23T10:20:22Z" changeset="112868473" uid="11758604" user="map per">
+		<nd ref="1235752293"/>
+		<nd ref="1235752299"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="108438043" version="3" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1235752286"/>
+		<nd ref="1235752301"/>
+		<nd ref="1235752293"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-0.33"/>
+	</way>
+	<way id="108438044" version="3" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1235752299"/>
+		<nd ref="1235752290"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="108438045" version="3" timestamp="2021-10-23T10:20:22Z" changeset="112868473" uid="11758604" user="map per">
+		<nd ref="1235752298"/>
+		<nd ref="1235752288"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="120739241" version="3" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353023155"/>
+		<nd ref="1353023181"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="120739252" version="3" timestamp="2022-07-27T14:24:17Z" changeset="124144208" uid="11758604" user="map per">
+		<nd ref="1353023077"/>
+		<nd ref="1353023014"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2.33"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="120739259" version="3" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353023089"/>
+		<nd ref="1353023120"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="120739271" version="3" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353023049"/>
+		<nd ref="1353023157"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="120739286" version="3" timestamp="2022-07-27T14:24:17Z" changeset="124144208" uid="11758604" user="map per">
+		<nd ref="1353023000"/>
+		<nd ref="1353023013"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2.66"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="120739299" version="3" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353023192"/>
+		<nd ref="1353023210"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="120739302" version="6" timestamp="2022-07-08T18:26:00Z" changeset="123377284" uid="11758604" user="map per">
+		<nd ref="1353023285"/>
+		<nd ref="9875010189"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="120739303" version="4" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353023101"/>
+		<nd ref="1353023094"/>
+		<nd ref="1353023077"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2.33"/>
+	</way>
+	<way id="120739317" version="4" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353023014"/>
+		<nd ref="1353022998"/>
+		<nd ref="1353023000"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2.66"/>
+	</way>
+	<way id="120739331" version="4" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353023013"/>
+		<nd ref="1353023029"/>
+		<nd ref="1353023125"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="120740989" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353033284"/>
+		<nd ref="1353023277"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="120740990" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353023192"/>
+		<nd ref="1353023210"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="120740993" version="6" timestamp="2022-07-08T18:26:00Z" changeset="123377284" uid="11758604" user="map per">
+		<nd ref="1353033326"/>
+		<nd ref="1353023264"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="120740995" version="4" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353023089"/>
+		<nd ref="1353023120"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="120740997" version="6" timestamp="2022-07-27T14:24:17Z" changeset="124144208" uid="11758604" user="map per">
+		<nd ref="1353023077"/>
+		<nd ref="1353032703"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1.33"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="120740998" version="4" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353023155"/>
+		<nd ref="1353023181"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="120740999" version="6" timestamp="2022-07-08T18:26:00Z" changeset="123377284" uid="11758604" user="map per">
+		<nd ref="1353033326"/>
+		<nd ref="1353023264"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="120741007" version="6" timestamp="2022-07-27T14:24:17Z" changeset="124144208" uid="11758604" user="map per">
+		<nd ref="1353023000"/>
+		<nd ref="1353032704"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0.5"/>
+		<tag k="steps" v="yes"/>
+	</way>
+	<way id="120741009" version="4" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353033374"/>
+		<nd ref="1353023287"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="120741010" version="6" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353033136"/>
+		<nd ref="1353023194"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="120741015" version="6" timestamp="2022-07-27T14:24:17Z" changeset="124144208" uid="11758604" user="map per">
+		<nd ref="1353032945"/>
+		<nd ref="1353032903"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+		<tag k="steps" v="yes"/>
+	</way>
+	<way id="120741016" version="6" timestamp="2022-07-08T18:26:00Z" changeset="123377284" uid="11758604" user="map per">
+		<nd ref="1353033326"/>
+		<nd ref="1353023264"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="120741017" version="5" timestamp="2022-07-08T18:26:00Z" changeset="123377284" uid="11758604" user="map per">
+		<nd ref="1353023285"/>
+		<nd ref="9875010190"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="120741018" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353033284"/>
+		<nd ref="1353023277"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="120741020" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353033136"/>
+		<nd ref="1353023194"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="120741022" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353023155"/>
+		<nd ref="1353023181"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="120741024" version="6" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353033136"/>
+		<nd ref="1353023194"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="120741025" version="5" timestamp="2022-07-27T14:24:17Z" changeset="124144208" uid="11758604" user="map per">
+		<nd ref="1353032685"/>
+		<nd ref="1353032697"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1.66"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="120741026" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353033374"/>
+		<nd ref="1353023287"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="120741027" version="3" timestamp="2022-07-27T14:24:17Z" changeset="124144208" uid="11758604" user="map per">
+		<nd ref="1353032756"/>
+		<nd ref="1353032871"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0.75"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="120741028" version="4" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353023049"/>
+		<nd ref="1353023157"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="120741029" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353033374"/>
+		<nd ref="1353023287"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="120741030" version="5" timestamp="2022-07-27T14:24:17Z" changeset="124144208" uid="11758604" user="map per">
+		<nd ref="1353032947"/>
+		<nd ref="1353032895"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="120741031" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353023192"/>
+		<nd ref="1353023210"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="120741032" version="6" timestamp="2022-07-27T14:24:17Z" changeset="124144208" uid="11758604" user="map per">
+		<nd ref="1353023077"/>
+		<nd ref="1353032706"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0.25"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="120741033" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353033284"/>
+		<nd ref="1353023277"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="120741034" version="5" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1353023089"/>
+		<nd ref="1353023120"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="120741037" version="4" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353032871"/>
+		<nd ref="1353023125"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="120741038" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353023285"/>
+		<nd ref="1353023291"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="120741040" version="5" timestamp="2022-07-27T14:24:17Z" changeset="124144208" uid="11758604" user="map per">
+		<nd ref="1353032895"/>
+		<nd ref="1353023094"/>
+		<nd ref="1353023077"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="120741042" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353032704"/>
+		<nd ref="1353023029"/>
+		<nd ref="1353032756"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0.75"/>
+	</way>
+	<way id="120741045" version="4" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353032706"/>
+		<nd ref="1353022998"/>
+		<nd ref="1353023000"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0.5"/>
+	</way>
+	<way id="120741049" version="7" timestamp="2022-07-27T13:17:03Z" changeset="124141389" uid="11758604" user="map per">
+		<nd ref="1353033002"/>
+		<nd ref="1353032945"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="120741051" version="5" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353032938"/>
+		<nd ref="1353033317"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-1"/>
+	</way>
+	<way id="120741054" version="4" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353032703"/>
+		<nd ref="1353022998"/>
+		<nd ref="1353032685"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1.66"/>
+	</way>
+	<way id="120741055" version="4" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353032903"/>
+		<nd ref="1353023094"/>
+		<nd ref="1353023077"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0.25"/>
+	</way>
+	<way id="120741067" version="4" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1353032697"/>
+		<nd ref="1353023029"/>
+		<nd ref="1353023125"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="120741071" version="8" timestamp="2022-07-27T14:53:41Z" changeset="124145476" uid="11758604" user="map per">
+		<nd ref="1353022899"/>
+		<nd ref="1353032938"/>
+		<nd ref="1353032808"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="-1"/>
+	</way>
+	<way id="121802815" version="2" timestamp="2021-10-23T10:20:22Z" changeset="112868473" uid="11758604" user="map per">
+		<nd ref="1353032945"/>
+		<nd ref="1353023101"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="2"/>
+		<tag k="stairs" v="yes"/>
+	</way>
+	<way id="121802816" version="5" timestamp="2022-07-27T13:35:06Z" changeset="124142151" uid="11758604" user="map per">
+		<nd ref="1353032996"/>
+		<nd ref="1353023125"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="layer" v="3"/>
+		<tag k="level" v="3"/>
+	</way>
+	<way id="121802817" version="6" timestamp="2022-07-27T13:35:06Z" changeset="124142151" uid="11758604" user="map per">
+		<nd ref="1353033000"/>
+		<nd ref="1353023125"/>
+		<nd ref="1353032947"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="layer" v="1"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="121802818" version="6" timestamp="2022-07-27T13:35:06Z" changeset="124142151" uid="11758604" user="map per">
+		<nd ref="1353032996"/>
+		<nd ref="1353023125"/>
+		<nd ref="1353032945"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="layer" v="2"/>
+		<tag k="level" v="2"/>
+	</way>
+	<way id="121812033" version="4" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1223127859"/>
+		<nd ref="9764022675"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+	</way>
+	<way id="123400966" version="3" timestamp="2022-05-23T10:31:52Z" changeset="121361334" uid="13948195" user="e84">
+		<nd ref="1235752294"/>
+		<nd ref="1376262580"/>
+		<nd ref="1376262588"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+	<way id="123416741" version="4" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1353023049"/>
+		<nd ref="1353023157"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="1"/>
+	</way>
+	<way id="993175924" version="1" timestamp="2021-10-16T00:45:22Z" changeset="112563248" uid="921194" user="gnu_jj">
+		<nd ref="1204630326"/>
+		<nd ref="1204631303"/>
+		<tag k="highway" v="corridor"/>
+		<tag k="indoor" v="yes"/>
+		<tag k="level" v="0"/>
+	</way>
+</osm>
