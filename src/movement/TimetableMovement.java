@@ -16,7 +16,6 @@ public class TimetableMovement extends MapBasedMovement {
 
     /** Our internal timetable working set **/
     // Adding a dedicated map only for rooms
-    private SimMap rooms = null;
     private int nrofHosts = 0;
     private DijkstraPathFinder pathFinder;
     private HashMap<Integer, ArrayList<Coord>> timetable = null;
@@ -34,17 +33,18 @@ public class TimetableMovement extends MapBasedMovement {
 
     public TimetableMovement(Settings settings) {
         super(settings);
-        rooms = readRooms();
         nrofHosts = getNumOfHosts();
         timetable = createTimetable();
-        pathFinder = new DijkstraPathFinder(getOkMapNodeTypes());
+        // Cheating to actually use all nodes for the path
+        int[] allowed = new int[32];
+        Arrays.setAll(allowed, p -> p);
+        pathFinder = new DijkstraPathFinder(allowed);
     }
 
     protected  TimetableMovement(TimetableMovement tm) {
         super(tm);
         this.timeOfDay = tm.timeOfDay;
         this.timetable = tm.timetable;
-        this.rooms = tm.rooms;
         this.nrofHosts = tm.nrofHosts;
         this.pathFinder = tm.pathFinder;
     }
@@ -70,37 +70,6 @@ public class TimetableMovement extends MapBasedMovement {
         return timetable;
     }
 
-    private SimMap readRooms() {
-        SimMap simMap;
-        Settings settings = new Settings(MAP_BASE_MOVEMENT_NS);
-        WKTMapReader r = new WKTMapReader(true);
-
-        // check out if previously asked map was asked again
-        if (rooms != null) {
-            // Does not change the rooms
-            return rooms;
-        }
-
-        try {
-            String pathFile = settings.getSetting(ROOM_FILE_S);
-
-            // Adding our rooms to the existing nodes in the reader
-            r.addPaths(new File(pathFile), super.nrofMapFilesRead);
-        } catch (IOException e) {
-            throw new SimError(e.toString(),e);
-        }
-
-        simMap = r.getMap();
-        super.checkMapConnectedness(simMap.getNodes());
-        // mirrors the map (y' = -y) and moves its upper left corner to origo
-        simMap.mirror();
-        Coord offset = simMap.getMinBound().clone();
-        simMap.translate(-offset.getX(), -offset.getY());
-        super.checkCoordValidity(simMap.getNodes());
-
-        return simMap;
-    }
-
     /** The initial location is currently used from the MapBasedMovement **/
     @Override
     public Coord getInitialLocation() {
@@ -117,10 +86,18 @@ public class TimetableMovement extends MapBasedMovement {
 
         SimMap map = getMap();
         // TODO: This has to be adapted to the timetable structure
-        nextNode = map.getNodes().get(rng.nextInt(map.getNodes().size()));
+//        do {
+//            nextNode = map.getNodes().get(rng.nextInt(map.getNodes().size()));
+//        } while (1 < nextNode.getNeighbors().size());
+        do {
+            nextNode = map.getNodes().get(rng.nextInt(map.getNodes().size()));
+        } while (getOkMapNodeTypes() != null && !nextNode.isType(getOkMapNodeTypes()));
 
         // The rest is simply from the shortestPathExample
         List<MapNode> nodePath = pathFinder.getShortestPath(lastMapNode, nextNode);
+        assert nodePath.size() > 0 : "No path from " + lastMapNode + " to " +
+                nextNode + ". The simulation map isn't fully connected";
+        System.out.println(nodePath.size());
         for (MapNode node : nodePath) {
             p.addWaypoint(node.getLocation());
         }
