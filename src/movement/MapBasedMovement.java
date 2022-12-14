@@ -59,7 +59,7 @@ public class MapBasedMovement extends MovementModel implements SwitchableMovemen
 	private int [] okMapNodeTypes;
 
 	/** how many map files are read */
-	private int nrofMapFilesRead = 0;
+	protected int nrofMapFilesRead = 0;
 	/** map cache -- in case last mm read the same map, use it without loading*/
 	private static SimMap cachedMap = null;
 	/** names of the previously cached map's files (for hit comparison) */
@@ -314,7 +314,7 @@ public class MapBasedMovement extends MovementModel implements SwitchableMovemen
 	 * @param nodes The list of nodes to check
 	 * @throws SettingsError if all map nodes are not connected
 	 */
-	private void checkMapConnectedness(List<MapNode> nodes) {
+	protected void checkMapConnectedness(List<MapNode> nodes) {
 		Set<MapNode> visited = new HashSet<MapNode>();
 		Queue<MapNode> unvisited = new LinkedList<MapNode>();
 		MapNode firstNode;
@@ -359,7 +359,7 @@ public class MapBasedMovement extends MovementModel implements SwitchableMovemen
 	 * @param nodes The list of nodes to check
 	 * @throws SettingsError if some map node is out of bounds
 	 */
-	private void checkCoordValidity(List<MapNode> nodes) {
+	protected void checkCoordValidity(List<MapNode> nodes) {
 		 // Check that all map nodes are within world limits
 		for (MapNode n : nodes) {
 			double x = n.getLocation().getX();
