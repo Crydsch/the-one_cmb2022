@@ -4,12 +4,13 @@ import core.Coord;
 import core.Settings;
 import core.SimError;
 import input.WKTMapReader;
+import movement.map.DijkstraPathFinder;
+import movement.map.MapNode;
 import movement.map.SimMap;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 public class TimetableMovement extends MapBasedMovement {
 
@@ -17,6 +18,7 @@ public class TimetableMovement extends MapBasedMovement {
     // Adding a dedicated map only for rooms
     private SimMap rooms = null;
     private int nrofHosts = 0;
+    private DijkstraPathFinder pathFinder;
     private HashMap<Integer, ArrayList<Coord>> timetable = null;
     private int timeOfDay = 0;
 
@@ -35,6 +37,7 @@ public class TimetableMovement extends MapBasedMovement {
         rooms = readRooms();
         nrofHosts = getNumOfHosts();
         timetable = createTimetable();
+        pathFinder = new DijkstraPathFinder(getOkMapNodeTypes());
     }
 
     protected  TimetableMovement(TimetableMovement tm) {
@@ -43,6 +46,7 @@ public class TimetableMovement extends MapBasedMovement {
         this.timetable = tm.timetable;
         this.rooms = tm.rooms;
         this.nrofHosts = tm.nrofHosts;
+        this.pathFinder = tm.pathFinder;
     }
 
     private int getNumOfHosts() {
@@ -98,13 +102,30 @@ public class TimetableMovement extends MapBasedMovement {
     }
 
     /** The initial location is currently used from the MapBasedMovement **/
+    @Override
+    public Coord getInitialLocation() {
+        // TODO: Select list of nodes that make valid entry points and use these as
+        // starting point
+        return super.getInitialLocation();
+    }
 
     /** This method is used to determine where the node is going next **/
     @Override
     public Path getPath() {
-        //Path p  = new Path(generateSpeed());
+        Path p  = new Path(generateSpeed());
+        MapNode nextNode;
 
-        return null;
+        SimMap map = getMap();
+        // TODO: This has to be adapted to the timetable structure
+        nextNode = map.getNodes().get(rng.nextInt(map.getNodes().size()));
+
+        // The rest is simply from the shortestPathExample
+        List<MapNode> nodePath = pathFinder.getShortestPath(lastMapNode, nextNode);
+        for (MapNode node : nodePath) {
+            p.addWaypoint(node.getLocation());
+        }
+        lastMapNode = nextNode;
+        return p;
     }
 
     @Override
