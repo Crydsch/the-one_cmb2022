@@ -29,7 +29,13 @@ Group1.routeFile = data/TUM_MI_Faculty/tum_mi_l0.wkt
 Group1.routeType = 1
 Group1.waitTime = 10, 100
 
-MapBasedMovement.nrofMapFiles = 1
+MapBasedMovement.nrofMapFiles = 2
 MapBasedMovement.mapFile1 = data/TUM_MI_Faculty/tum_mi_l0.wkt
-TimetableMovement.roomFile = data/TUM_MI_Faculty/tum_mi_rooms.wkt
+# Currently for this to work, the map has to specified in the okMaps config param
+MapBasedMovement.mapFile2 = data/TUM_MI_Faculty/tum_mi_rooms.wkt
+Group1.okMaps = 2
 TimetableMovement.startOfDay = 8
+
+Report.nrofReports = 1
+Report.report1 = MovementNs2Report
+Report.reportDir = reports
