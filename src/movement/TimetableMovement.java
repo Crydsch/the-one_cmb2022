@@ -2,11 +2,13 @@ package movement;
 
 import core.Coord;
 import core.Settings;
+import core.SimClock;
 import core.SimError;
 import input.WKTMapReader;
 import movement.map.DijkstraPathFinder;
 import movement.map.MapNode;
 import movement.map.SimMap;
+import movement.map.TimetableNode;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,13 +20,19 @@ public class TimetableMovement extends MapBasedMovement {
     // Adding a dedicated map only for rooms
     private int nrofHosts = 0;
     private DijkstraPathFinder pathFinder;
-    private HashMap<Integer, ArrayList<Coord>> timetable = null;
-    private int timeOfDay = 0;
+    private static HashMap<Integer, List<TimetableNode>> timetable = null;
+    // Used to differentiate the users
+    private int userNum;
+    private static int processedUsers = 0;
 
     /** Configuration parameters **/
     public static final String MAP_BASE_MOVEMENT_NS = "TimetableMovement";
     public static final String START_MAP_NUM = "nrofStartMap";
     public static final String START_DAY_TIME = "startOfDay";
+    public static final String NUM_ACTIVITIES = "defActivities";
+    public static final String DEF_DUR = "defActivityDur";
+    public static final String SEC_PER_ITER = "secondsPer1Iter";
+
     // Below are some general settings to get more information
     public static final String SCENARIO_NS = "Scenario";
     public static final String GROUP_NS = "Group";
@@ -34,7 +42,8 @@ public class TimetableMovement extends MapBasedMovement {
     public TimetableMovement(Settings settings) {
         super(settings);
         nrofHosts = getNumOfHosts();
-        timetable = createTimetable();
+        userNum = processedUsers++;
+        timetable = fillTimetable(userNum);
         // Cheating to actually use all nodes for the path
         int[] allowed = new int[32];
         Arrays.setAll(allowed, p -> p);
@@ -43,10 +52,12 @@ public class TimetableMovement extends MapBasedMovement {
 
     protected  TimetableMovement(TimetableMovement tm) {
         super(tm);
-        this.timeOfDay = tm.timeOfDay;
+        this.userNum = processedUsers++;
         this.timetable = tm.timetable;
         this.nrofHosts = tm.nrofHosts;
         this.pathFinder = tm.pathFinder;
+        fillTimetable(this.userNum);
+//        System.out.println("Timetable contains: " + timetable.get(userNum).size() + " elems");
     }
 
     private int getNumOfHosts() {
@@ -60,59 +71,98 @@ public class TimetableMovement extends MapBasedMovement {
         return numHosts;
     }
 
-    private HashMap<Integer, ArrayList<Coord>> createTimetable() {
+    private HashMap<Integer, List<TimetableNode>> fillTimetable(int user) {
+        System.out.println("Filling timetable for user: " + userNum);
+        if (timetable == null)
+            timetable = new HashMap<>();
+
         Settings settings = new Settings(MAP_BASE_MOVEMENT_NS);
-        this.timeOfDay = settings.getInt(START_DAY_TIME);
+        int numStartMap = settings.getInt(START_MAP_NUM);
+        int defDuration = settings.getInt(DEF_DUR);
+        double startTime = settings.getDouble(START_DAY_TIME);
+        List<TimetableNode> timeplan = new ArrayList<>();
+        MapNode start;
+        SimMap map = getMap();
+        List<MapNode> mapNodes = map.getNodes();
+        do {
+            start = mapNodes.get(rng.nextInt(mapNodes.size()));
+        } while(!start.isType(numStartMap));
 
-        HashMap timetable = new HashMap<>(nrofHosts);
+        TimetableNode startNode = new TimetableNode(start, startTime);
+        timeplan.add(startNode);
 
+        // Currently randomly selected classroom
+        int activites = settings.getInt(NUM_ACTIVITIES);
+        MapNode nextActivity;
+        for (int i = 0; i < activites; i++) {
+            do {
+                nextActivity = mapNodes.get(rng.nextInt(mapNodes.size()));
+            } while(!nextActivity.isType(getOkMapNodeTypes()));
+            TimetableNode nextNode = new TimetableNode(nextActivity, startTime + i + (i*defDuration));
+            timeplan.add(nextNode);
+        }
 
+        // Currently leave the build were we entered
+        TimetableNode endNode = new TimetableNode(start, 19.0);
+        timeplan.add(endNode);
+
+        timetable.put(userNum, timeplan);
         return timetable;
     }
 
     /** The initial location is currently used from the MapBasedMovement **/
     @Override
     public Coord getInitialLocation() {
-        // TODO: Select list of nodes that make valid entry points and use these as
-        // starting point
+        assert timetable != null : "Timetable not created before first step!";
+        // Selecting the first point from the timetable
+        TimetableNode startNode = timetable.get(userNum).get(0);
+        this.lastMapNode = startNode.getNode();
 
-
-
-        Settings settings = new Settings(MAP_BASE_MOVEMENT_NS);
-        int numStartMap = settings.getInt(START_MAP_NUM);
-
-        MapNode startNode;
-        SimMap map = getMap();
-        List<MapNode> nodes = map.getNodes();
-        do {
-            startNode = nodes.get(rng.nextInt(nodes.size()));
-        } while(!startNode.isType(numStartMap));
-
-        this.lastMapNode = startNode;
-
-        return startNode.getLocation().clone();
+        return lastMapNode.getLocation().clone();
     }
 
     /** This method is used to determine where the node is going next **/
     @Override
     public Path getPath() {
         Path p  = new Path(generateSpeed());
-        MapNode nextNode;
+        System.out.println("Called getPath for " + userNum + " with internal step " + SimClock.getTime() + "(" + nrofHosts + " users)");
 
-        SimMap map = getMap();
-        // TODO: This has to be adapted to the timetable structure
+        // Select a new classroom if time is already fine, otherwise return current room
+        List<TimetableNode> nextNodes = timetable.get(userNum);
+        double currentTime = SimClock.getTime();
+        MapNode nextNode = null;
+        TimetableNode timeNode = null;
+        for (int i = 0; i < nextNodes.size(); i++) {
+            timeNode = nextNodes.get(i);
+            switch (timeNode.canExecute(currentTime)) {
+                case 1:
+                    // Event still to come, but because of order (can break)
+                    break;
+                case 0:
+                    if (lastMapNode == timeNode.getNode())
+                        return null;
+                    nextNode = timeNode.getNode();
+                    break;
+                case -1:
+                    // Already happened, continue
+                    continue;
+                default:
+                    System.out.println("Unknown return type!");
+                    return null;
+            }
+        }
+        if (nextNode == null)
+            return null;
+
+//        SimMap map = getMap();
 //        do {
 //            nextNode = map.getNodes().get(rng.nextInt(map.getNodes().size()));
-//        } while (1 < nextNode.getNeighbors().size());
-        do {
-            nextNode = map.getNodes().get(rng.nextInt(map.getNodes().size()));
-        } while (getOkMapNodeTypes() != null && !nextNode.isType(getOkMapNodeTypes()));
-
+//        } while (getOkMapNodeTypes() != null && !nextNode.isType(getOkMapNodeTypes()));
         // The rest is simply from the shortestPathExample
         List<MapNode> nodePath = pathFinder.getShortestPath(lastMapNode, nextNode);
         assert nodePath.size() > 0 : "No path from " + lastMapNode + " to " +
                 nextNode + ". The simulation map isn't fully connected";
-        System.out.println(nodePath.size());
+//        System.out.println(nodePath.size());
         for (MapNode node : nodePath) {
             p.addWaypoint(node.getLocation());
         }
