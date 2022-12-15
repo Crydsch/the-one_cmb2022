@@ -1,0 +1,14 @@
+# Main entrance
+LINESTRING (159.908 77.714, 158.375 72.166)
+# East entrance
+LINESTRING (179.888 46.29, 176.838 47.058)
+# Could be a small entrance, but nobody uses it
+# LINESTRING (128.796 55.208, 129.077 56.254)
+# Entrance west
+LINESTRING (29.728 82.818, 32.697 82.64)
+# Entrance cafeteria
+LINESTRING (104.242 59.022, 105.182 62.925)
+# Entrance next to lecture hall?
+# LINESTRING (135.465 50.471, 136.383 54.274)
+# Entrance Bib / South
+LINESTRING (44.903 76.28, 45.747 79.471)
