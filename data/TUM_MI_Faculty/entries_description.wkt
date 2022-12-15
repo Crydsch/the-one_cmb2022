@@ -5,7 +5,7 @@ LINESTRING (179.888 46.29, 176.838 47.058)
 # Could be a small entrance, but nobody uses it
 # LINESTRING (128.796 55.208, 129.077 56.254)
 # Entrance west
-LINESTRING (29.728 82.818, 32.697 82.64)
+LINESTRING (20.971 91.436, 24.139 90.824)
 # Entrance cafeteria
 LINESTRING (104.242 59.022, 105.182 62.925)
 # Entrance next to lecture hall?
