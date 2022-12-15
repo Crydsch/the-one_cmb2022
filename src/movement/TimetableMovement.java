@@ -98,7 +98,7 @@ public class TimetableMovement extends MapBasedMovement {
             do {
                 nextActivity = mapNodes.get(rng.nextInt(mapNodes.size()));
             } while(!nextActivity.isType(getOkMapNodeTypes()));
-            TimetableNode nextNode = new TimetableNode(nextActivity, startTime + i + (i*defDuration));
+            TimetableNode nextNode = new TimetableNode(nextActivity, startTime + 0.2 + (i*defDuration));
             timeplan.add(nextNode);
         }
 
@@ -132,7 +132,7 @@ public class TimetableMovement extends MapBasedMovement {
         double currentTime = SimClock.getTime();
         MapNode nextNode = null;
         TimetableNode timeNode = null;
-        for (int i = 0; i < nextNodes.size(); i++) {
+        for (int i = 1; i < nextNodes.size(); i++) {
             timeNode = nextNodes.get(i);
             switch (timeNode.canExecute(currentTime)) {
                 case 1:
@@ -154,10 +154,6 @@ public class TimetableMovement extends MapBasedMovement {
         if (nextNode == null)
             return null;
 
-//        SimMap map = getMap();
-//        do {
-//            nextNode = map.getNodes().get(rng.nextInt(map.getNodes().size()));
-//        } while (getOkMapNodeTypes() != null && !nextNode.isType(getOkMapNodeTypes()));
         // The rest is simply from the shortestPathExample
         List<MapNode> nodePath = pathFinder.getShortestPath(lastMapNode, nextNode);
         assert nodePath.size() > 0 : "No path from " + lastMapNode + " to " +
