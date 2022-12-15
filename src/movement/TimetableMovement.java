@@ -23,7 +23,7 @@ public class TimetableMovement extends MapBasedMovement {
 
     /** Configuration parameters **/
     public static final String MAP_BASE_MOVEMENT_NS = "TimetableMovement";
-    public static final String ROOM_FILE_S = "roomFile";
+    public static final String START_MAP_NUM = "nrofStartMap";
     public static final String START_DAY_TIME = "startOfDay";
     // Below are some general settings to get more information
     public static final String SCENARIO_NS = "Scenario";
@@ -75,7 +75,22 @@ public class TimetableMovement extends MapBasedMovement {
     public Coord getInitialLocation() {
         // TODO: Select list of nodes that make valid entry points and use these as
         // starting point
-        return super.getInitialLocation();
+
+
+
+        Settings settings = new Settings(MAP_BASE_MOVEMENT_NS);
+        int numStartMap = settings.getInt(START_MAP_NUM);
+
+        MapNode startNode;
+        SimMap map = getMap();
+        List<MapNode> nodes = map.getNodes();
+        do {
+            startNode = nodes.get(rng.nextInt(nodes.size()));
+        } while(!startNode.isType(numStartMap));
+
+        this.lastMapNode = startNode;
+
+        return startNode.getLocation().clone();
     }
 
     /** This method is used to determine where the node is going next **/
