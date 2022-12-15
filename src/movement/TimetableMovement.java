@@ -10,9 +10,12 @@ import movement.map.MapNode;
 import movement.map.SimMap;
 import movement.map.TimetableNode;
 
+import javax.sound.midi.SysexMessage;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class TimetableMovement extends MapBasedMovement {
 
@@ -32,6 +35,7 @@ public class TimetableMovement extends MapBasedMovement {
     public static final String NUM_ACTIVITIES = "defActivities";
     public static final String DEF_DUR = "defActivityDur";
     public static final String SEC_PER_ITER = "secondsPer1Iter";
+    public static final String SPAWN_PROBS = "spawnProbability";
 
     // Below are some general settings to get more information
     public static final String SCENARIO_NS = "Scenario";
@@ -72,7 +76,7 @@ public class TimetableMovement extends MapBasedMovement {
     }
 
     private HashMap<Integer, List<TimetableNode>> fillTimetable(int user) {
-        System.out.println("Filling timetable for user: " + userNum);
+//        System.out.println("Filling timetable for user: " + userNum);
         if (timetable == null)
             timetable = new HashMap<>();
 
@@ -80,13 +84,25 @@ public class TimetableMovement extends MapBasedMovement {
         int numStartMap = settings.getInt(START_MAP_NUM);
         int defDuration = settings.getInt(DEF_DUR);
         double startTime = settings.getDouble(START_DAY_TIME);
+        int[] probs = settings.getCsvInts(SPAWN_PROBS, 4);
+        int hostCounter = 0;
+        for (int i=0; i < probs.length; i++) {
+            probs[i] = hostCounter + (int) Math.floor(nrofHosts * (probs[i] / (double)100));
+            hostCounter = probs[i];
+        }
         List<TimetableNode> timeplan = new ArrayList<>();
         MapNode start;
         SimMap map = getMap();
         List<MapNode> mapNodes = map.getNodes();
-        do {
-            start = mapNodes.get(rng.nextInt(mapNodes.size()));
-        } while(!start.isType(numStartMap));
+        List<MapNode> filteredNodes = mapNodes.stream().filter(p -> p.isType(numStartMap)).collect(Collectors.toList());
+        int index = 0;
+        for (; index < probs.length; index++) {
+            if (probs[index] >= user)
+                break;
+        }
+        index = Math.min(index, filteredNodes.size()-1);
+//        System.out.println("User " + user + " index " + index);
+        start = filteredNodes.get(index);
 
         TimetableNode startNode = new TimetableNode(start, startTime);
         timeplan.add(startNode);
@@ -125,7 +141,7 @@ public class TimetableMovement extends MapBasedMovement {
     @Override
     public Path getPath() {
         Path p  = new Path(generateSpeed());
-        System.out.println("Called getPath for " + userNum + " with internal step " + SimClock.getTime() + "(" + nrofHosts + " users)");
+//        System.out.println("Called getPath for " + userNum + " with internal step " + SimClock.getTime() + "(" + nrofHosts + " users)");
 
         // Select a new classroom if time is already fine, otherwise return current room
         List<TimetableNode> nextNodes = timetable.get(userNum);
