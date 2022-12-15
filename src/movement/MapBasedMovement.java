@@ -305,6 +305,23 @@ public class MapBasedMovement extends MovementModel implements SwitchableMovemen
 		simMap.translate(-offset.getX(), -offset.getY());
 		checkCoordValidity(simMap.getNodes());
 
+//		System.out.println(offset.getX());
+//		System.out.println(offset.getY());
+
+//		for (MapNode node : simMap.getNodes()) {
+//			List<MapNode> neighbors = node.getNeighbors();
+//			if (neighbors.size() == 1) {
+//				Coord location = node.getLocation();
+////				location.translate(offset.getX(), offset.getY());
+//				Coord nLocation = neighbors.get(0).getLocation();
+////				nLocation.translate(offset.getX(), offset.getY());
+//				System.out.println("LINESTRING (" + location.getX() +
+//						" " + location.getY() + ", " +
+//						nLocation.getX() + " " +
+//						nLocation.getY() + ")");
+//			}
+//		}
+
 		cachedMap = simMap;
 		return simMap;
 	}
