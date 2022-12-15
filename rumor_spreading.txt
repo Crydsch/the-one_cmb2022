@@ -8,16 +8,16 @@
 # Weil OSM keine konkreten Wege in die Räume beinhaltet
 
 Scenario.name = RumorSpreading
-Scenario.endTime = 1000
-Scenario.updateInterval = 0.1
+Scenario.endTime = 780
+Scenario.updateInterval = 1
 Scenario.simulateConnections = false
-MovementModel.worldSize = 200,200
+MovementModel.worldSize = 200,80
 Report.nrofReports = 0
 Events.nrof = 0
 
 Scenario.nrofHostGroups = 1
 Group1.groupID = x
-Group1.nrofHosts = 2
+Group1.nrofHosts = 5
 Group1.nrofInterfaces = 1
 Group1.interface1 = myInterface
 myInterface.type = SimpleBroadcastInterface
@@ -27,17 +27,21 @@ Group1.movementModel = TimetableMovement
 Group1.router = PassiveRouter
 Group1.routeFile = data/TUM_MI_Faculty/tum_mi_l0.wkt
 Group1.routeType = 1
-Group1.waitTime = 10, 100
 
 MapBasedMovement.nrofMapFiles = 3
 MapBasedMovement.mapFile1 = data/TUM_MI_Faculty/tum_mi_l0.wkt
 MapBasedMovement.mapFile2 = data/TUM_MI_Faculty/entries.wkt
+TimetableMovement.nrofStartMap = 2
 # For this to be the destination, the map has to specified in
-# the okMaps config param
+# the "okMaps" config param
 MapBasedMovement.mapFile3 = data/TUM_MI_Faculty/tum_mi_rooms.wkt
 Group1.okMaps = 3
-TimetableMovement.startOfDay = 8
-TimetableMovement.nrofStartMap = 2
+# Time in hours (7 == 07:00 in the morning, 21 == 21:00 in evening)
+TimetableMovement.startOfDay = 7
+TimetableMovement.defActivities = 3
+TimetableMovement.defActivityDur = 2
+# Must be a value >= 1 (1 internal step equals n seconds)
+TimetableMovement.secondsPer1Iter = 60
 
 Report.nrofReports = 1
 Report.report1 = MovementNs2Report
