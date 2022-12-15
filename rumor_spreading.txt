@@ -11,7 +11,7 @@ Scenario.name = RumorSpreading
 Scenario.endTime = 1000
 Scenario.updateInterval = 0.1
 Scenario.simulateConnections = false
-MovementModel.worldSize = 200,80
+MovementModel.worldSize = 200,200
 Report.nrofReports = 0
 Events.nrof = 0
 
@@ -29,12 +29,15 @@ Group1.routeFile = data/TUM_MI_Faculty/tum_mi_l0.wkt
 Group1.routeType = 1
 Group1.waitTime = 10, 100
 
-MapBasedMovement.nrofMapFiles = 2
+MapBasedMovement.nrofMapFiles = 3
 MapBasedMovement.mapFile1 = data/TUM_MI_Faculty/tum_mi_l0.wkt
-# Currently for this to work, the map has to specified in the okMaps config param
-MapBasedMovement.mapFile2 = data/TUM_MI_Faculty/tum_mi_rooms.wkt
-Group1.okMaps = 2
+MapBasedMovement.mapFile2 = data/TUM_MI_Faculty/entries.wkt
+# For this to be the destination, the map has to specified in
+# the okMaps config param
+MapBasedMovement.mapFile3 = data/TUM_MI_Faculty/tum_mi_rooms.wkt
+Group1.okMaps = 3
 TimetableMovement.startOfDay = 8
+TimetableMovement.nrofStartMap = 2
 
 Report.nrofReports = 1
 Report.report1 = MovementNs2Report
