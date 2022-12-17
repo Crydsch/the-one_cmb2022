@@ -4,11 +4,13 @@ import core.Coord;
 import core.Settings;
 import core.SimClock;
 import core.SimError;
+import input.MapDescriptionReader;
 import input.WKTMapReader;
 import movement.map.DijkstraPathFinder;
 import movement.map.MapNode;
 import movement.map.SimMap;
 import movement.map.TimetableNode;
+import util.RoomType;
 
 import javax.sound.midi.SysexMessage;
 import java.io.File;
@@ -29,13 +31,14 @@ public class TimetableMovement extends MapBasedMovement {
     private static int processedUsers = 0;
 
     /** Configuration parameters **/
-    public static final String MAP_BASE_MOVEMENT_NS = "TimetableMovement";
+    public static final String TIMETABLE_MOVEMENT_NS = "TimetableMovement";
     public static final String START_MAP_NUM = "nrofStartMap";
     public static final String START_DAY_TIME = "startOfDay";
     public static final String NUM_ACTIVITIES = "defActivities";
     public static final String DEF_DUR = "defActivityDur";
     public static final String SEC_PER_ITER = "secondsPer1Iter";
     public static final String SPAWN_PROBS = "spawnProbability";
+    public static final String ACT_PROBS = "activityProbability";
 
     // Below are some general settings to get more information
     public static final String SCENARIO_NS = "Scenario";
@@ -80,11 +83,24 @@ public class TimetableMovement extends MapBasedMovement {
         if (timetable == null)
             timetable = new HashMap<>();
 
-        Settings settings = new Settings(MAP_BASE_MOVEMENT_NS);
+        Settings settings = new Settings(TIMETABLE_MOVEMENT_NS);
         int numStartMap = settings.getInt(START_MAP_NUM);
         int defDuration = settings.getInt(DEF_DUR);
         double startTime = settings.getDouble(START_DAY_TIME);
         int[] probs = settings.getCsvInts(SPAWN_PROBS, 4);
+        int roomMapNum = getOkMapNodeTypes()[0];
+        Settings settings1 = new Settings(MAP_BASE_MOVEMENT_NS);
+        String roomString = settings1.getSetting(FILE_S + roomMapNum);
+        File roomFile = new File(roomString);
+        MapDescriptionReader reader = new MapDescriptionReader(roomFile);
+        HashMap<RoomType, List<Coord>> mapping;
+        try {
+            mapping = reader.readDescription();
+        } catch (IOException e) {
+            System.out.println(e.fillInStackTrace());
+        }
+
+        // Calculate the start position based on probabilities
         int hostCounter = 0;
         for (int i=0; i < probs.length; i++) {
             probs[i] = hostCounter + (int) Math.floor(nrofHosts * (probs[i] / (double)100));
@@ -107,8 +123,15 @@ public class TimetableMovement extends MapBasedMovement {
         TimetableNode startNode = new TimetableNode(start, startTime);
         timeplan.add(startNode);
 
+        // -------------------------------------------------------------------
+        // Select daily activities
         // Currently randomly selected classroom
         int activites = settings.getInt(NUM_ACTIVITIES);
+        double[] actProbs = settings.getCsvDoubles(ACT_PROBS, 4);
+        for (int i = 0; i < actProbs.length; i++) {
+            actProbs[i] = actProbs[i] / (double)100;
+        }
+
         MapNode nextActivity;
         for (int i = 0; i < activites; i++) {
             do {
@@ -117,6 +140,8 @@ public class TimetableMovement extends MapBasedMovement {
             TimetableNode nextNode = new TimetableNode(nextActivity, startTime + 0.2 + (i*defDuration));
             timeplan.add(nextNode);
         }
+        // -------------------------------------------------------------------
+
 
         // Currently leave the build were we entered
         TimetableNode endNode = new TimetableNode(start, 19.0);
