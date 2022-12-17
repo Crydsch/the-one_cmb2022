@@ -31,12 +31,14 @@ public class MapDescriptionReader {
         name = name.toLowerCase();
         if (name.contains("hs") || name.contains("lecture")) {
             return RoomType.LECTURE_HALL;
-        } else if (name.contains("corridor") || name.contains("seminar") || name.contains("room")) {
+        } else if (name.contains("corridor") || name.contains("seminar") || name.contains("room") || name.contains("chair")) {
             return RoomType.SEMINAR_ROOM;
         } else if (name.contains("table")) {
             return RoomType.TABLE;
         } else if (name.contains("coffee") || name.contains("cafe") || name.contains("mensa")) {
             return RoomType.MENSA;
+        } else if (name.contains("rechner") || name.contains("pc") || name.contains("rbg")) {
+            return RoomType.PC_ROOM;
         }
         return RoomType.LEISURE;
     }
