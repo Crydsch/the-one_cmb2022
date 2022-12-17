@@ -164,6 +164,7 @@ public class TimetableMovement extends MapBasedMovement {
             actProbs[i] = actProbs[i] / (double)100;
         }
 
+        // TODO: Implement the probabilities for the room selection
         MapNode nextActivity;
         double timeBeforeAct = startTime;
         Vector<RoomType> morningTypes = new Vector<>(Arrays.asList(RoomType.SEMINAR_ROOM, RoomType.LECTURE_HALL));
@@ -188,7 +189,7 @@ public class TimetableMovement extends MapBasedMovement {
 
 
         // Currently leave the build were we entered
-        TimetableNode endNode = new TimetableNode(start, 19.0);
+        TimetableNode endNode = new TimetableNode(start, Math.min(16.0, timeBeforeAct));
         timeplan.add(endNode);
 
         timetable.put(userNum, timeplan);
