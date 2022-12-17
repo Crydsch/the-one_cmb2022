@@ -58,6 +58,11 @@ public class MapBasedMovement extends MovementModel implements SwitchableMovemen
 	/** the indexes of the OK map files or null if all maps are OK */
 	private int [] okMapNodeTypes;
 
+	// The fields below are used only to fix the room offset
+
+	/** Used to move the data into 0,0 position */
+	protected Coord offset;
+
 	/** how many map files are read */
 	protected int nrofMapFilesRead = 0;
 	/** map cache -- in case last mm read the same map, use it without loading*/
@@ -301,7 +306,7 @@ public class MapBasedMovement extends MovementModel implements SwitchableMovemen
 		checkMapConnectedness(simMap.getNodes());
 		// mirrors the map (y' = -y) and moves its upper left corner to origo
 		simMap.mirror();
-		Coord offset = simMap.getMinBound().clone();
+		offset = simMap.getMinBound().clone();
 		simMap.translate(-offset.getX(), -offset.getY());
 		checkCoordValidity(simMap.getNodes());
 
