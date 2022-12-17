@@ -111,7 +111,8 @@ public class Coord implements Cloneable, Comparable<Coord> {
 			return true;
 		}
 		else {
-			return (x - c.x) < 1e-9 && (y - c.y) < 1e-9;
+			// Should be near enough with e-3
+			return Math.abs(x - c.x) < 0.0001 && Math.abs(y - c.y) < 0.0001;
 		}
 	}
 

@@ -3,19 +3,15 @@ package movement;
 import core.Coord;
 import core.Settings;
 import core.SimClock;
-import core.SimError;
 import input.MapDescriptionReader;
-import input.WKTMapReader;
 import movement.map.DijkstraPathFinder;
 import movement.map.MapNode;
 import movement.map.SimMap;
 import movement.map.TimetableNode;
 import util.RoomType;
 
-import javax.sound.midi.SysexMessage;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -23,11 +19,12 @@ public class TimetableMovement extends MapBasedMovement {
 
     /** Our internal timetable working set **/
     // Adding a dedicated map only for rooms
-    private int nrofHosts = 0;
-    private DijkstraPathFinder pathFinder;
-    private static HashMap<Integer, List<TimetableNode>> timetable = null;
+    private final int nrofHosts;
+    private final DijkstraPathFinder pathFinder;
+    private static HashMap<Integer, List<TimetableNode>> timetable;
+    private static HashMap<RoomType, List<Coord>> roomMapping;
     // Used to differentiate the users
-    private int userNum;
+    private final int userNum;
     private static int processedUsers = 0;
 
     /** Configuration parameters **/
@@ -36,7 +33,7 @@ public class TimetableMovement extends MapBasedMovement {
     public static final String START_DAY_TIME = "startOfDay";
     public static final String NUM_ACTIVITIES = "defActivities";
     public static final String DEF_DUR = "defActivityDur";
-    public static final String SEC_PER_ITER = "secondsPer1Iter";
+    public static final String ACTIVITY_GAP = "pauseBetweenActivities";
     public static final String SPAWN_PROBS = "spawnProbability";
     public static final String ACT_PROBS = "activityProbability";
 
@@ -60,7 +57,6 @@ public class TimetableMovement extends MapBasedMovement {
     protected  TimetableMovement(TimetableMovement tm) {
         super(tm);
         this.userNum = processedUsers++;
-        this.timetable = tm.timetable;
         this.nrofHosts = tm.nrofHosts;
         this.pathFinder = tm.pathFinder;
         fillTimetable(this.userNum);
@@ -78,27 +74,75 @@ public class TimetableMovement extends MapBasedMovement {
         return numHosts;
     }
 
+    private HashMap<RoomType, List<Coord>> createRoomMapping() {
+        if (roomMapping != null) {
+            return roomMapping;
+        }
+        MapDescriptionReader reader = new MapDescriptionReader();
+        HashMap<RoomType, List<Coord>> mapping = null;
+        try {
+            mapping = reader.readDescription(offset);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+        return mapping;
+    }
+
+    private MapNode selectNodeOfType(Vector<RoomType> types) {
+        HashSet<Coord> possibleCoords = new HashSet<>();
+        for (RoomType type : types) {
+            List<Coord> coords = roomMapping.get(type);
+            if (coords == null)
+                continue;
+            possibleCoords.addAll(coords);
+        }
+        if (possibleCoords.isEmpty())
+            throw new RuntimeException("No rooms for given types found!");
+        else
+            System.out.println("Possible coords: " + possibleCoords);
+
+        SimMap map = getMap();
+        List<MapNode> mapNodes = map.getNodes();
+//        System.out.println(Arrays.toString(mapNodes.toArray()));
+        MapNode nextNode;
+        nextNode = mapNodes.get(0);
+//        Coord location = nextNode.getLocation();
+//        location.translate(offset.getX(), offset.getY());
+//        System.out.println("0: "+ location);
+        return mapNodes.get(0);
+        /*
+        for (int i = 0; i < mapNodes.size(); i++) {
+            nextNode = mapNodes.get(i);
+            if (possibleCoords.contains(nextNode.getLocation())) {
+                System.out.println("Geht doch!");
+                return nextNode;
+            }
+        }
+        do {
+            nextNode = mapNodes.get(rng.nextInt(mapNodes.size()));
+//            System.out.println("Node coord: " + nextNode.getLocation());
+            if (possibleCoords.contains(nextNode.getLocation()))
+                break;
+        } while(!possibleCoords.contains(nextNode.getLocation()));
+        System.out.println("Found node for types");
+        return nextNode;
+        */
+    }
+
     private HashMap<Integer, List<TimetableNode>> fillTimetable(int user) {
 //        System.out.println("Filling timetable for user: " + userNum);
         if (timetable == null)
             timetable = new HashMap<>();
+        if (roomMapping == null)
+            roomMapping = createRoomMapping();
 
         Settings settings = new Settings(TIMETABLE_MOVEMENT_NS);
         int numStartMap = settings.getInt(START_MAP_NUM);
         int defDuration = settings.getInt(DEF_DUR);
         double startTime = settings.getDouble(START_DAY_TIME);
+        double activityGap = settings.getDouble(ACTIVITY_GAP) * (10.0/6);
         int[] probs = settings.getCsvInts(SPAWN_PROBS, 4);
-        int roomMapNum = getOkMapNodeTypes()[0];
-        Settings settings1 = new Settings(MAP_BASE_MOVEMENT_NS);
-        String roomString = settings1.getSetting(FILE_S + roomMapNum);
-        File roomFile = new File(roomString);
-        MapDescriptionReader reader = new MapDescriptionReader(roomFile);
-        HashMap<RoomType, List<Coord>> mapping;
-        try {
-            mapping = reader.readDescription();
-        } catch (IOException e) {
-            System.out.println(e.fillInStackTrace());
-        }
 
         // Calculate the start position based on probabilities
         int hostCounter = 0;
@@ -133,13 +177,26 @@ public class TimetableMovement extends MapBasedMovement {
         }
 
         MapNode nextActivity;
+        double timeBeforeAct = startTime;
+        Vector<RoomType> morningTypes = new Vector<>(Arrays.asList(RoomType.SEMINAR_ROOM, RoomType.LECTURE_HALL));
+        Vector<RoomType> lunchTypes = new Vector<>(Arrays.asList(RoomType.MENSA));
+        Vector<RoomType> afternoonTypes = new Vector<>(Arrays.asList(RoomType.SEMINAR_ROOM, RoomType.PC_ROOM, RoomType.LECTURE_HALL, RoomType.LIBRARY, RoomType.TABLE));
         for (int i = 0; i < activites; i++) {
-            do {
-                nextActivity = mapNodes.get(rng.nextInt(mapNodes.size()));
-            } while(!nextActivity.isType(getOkMapNodeTypes()));
+            if (timeBeforeAct < 12) {
+                // Morning, learn or lecture
+                nextActivity = selectNodeOfType(morningTypes);
+            } else if (12 < timeBeforeAct && timeBeforeAct < 14) {
+                // Eating
+                nextActivity = selectNodeOfType(lunchTypes);
+            } else {
+                // Afternoon, both learning and leisure
+                nextActivity = selectNodeOfType(afternoonTypes);
+            }
             TimetableNode nextNode = new TimetableNode(nextActivity, startTime + 0.2 + (i*defDuration));
             timeplan.add(nextNode);
+            timeBeforeAct += defDuration + activityGap;
         }
+        System.out.println("Finished creation of activity timetable");
         // -------------------------------------------------------------------
 
 
@@ -151,7 +208,7 @@ public class TimetableMovement extends MapBasedMovement {
         return timetable;
     }
 
-    /** The initial location is currently used from the MapBasedMovement **/
+    /** Only selecting the first coord from the timetable **/
     @Override
     public Coord getInitialLocation() {
         assert timetable != null : "Timetable not created before first step!";
@@ -162,17 +219,17 @@ public class TimetableMovement extends MapBasedMovement {
         return lastMapNode.getLocation().clone();
     }
 
-    /** This method is used to determine where the node is going next **/
+    /** Checking if the user can walk anywhere based on timetable and select path **/
     @Override
     public Path getPath() {
         Path p  = new Path(generateSpeed());
 //        System.out.println("Called getPath for " + userNum + " with internal step " + SimClock.getTime() + "(" + nrofHosts + " users)");
 
-        // Select a new classroom if time is already fine, otherwise return current room
+        // Select a new classroom if timetables allows to, otherwise return current room
         List<TimetableNode> nextNodes = timetable.get(userNum);
         double currentTime = SimClock.getTime();
         MapNode nextNode = null;
-        TimetableNode timeNode = null;
+        TimetableNode timeNode;
         for (int i = 1; i < nextNodes.size(); i++) {
             timeNode = nextNodes.get(i);
             switch (timeNode.canExecute(currentTime)) {
