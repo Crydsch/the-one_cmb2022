@@ -2,31 +2,29 @@ package input;
 
 import core.Coord;
 import core.Settings;
-import movement.map.MapNode;
 import util.RoomType;
 
 import java.io.*;
-import java.nio.Buffer;
 import java.util.*;
 
 public class MapDescriptionReader {
 
     public static final String TIMETABLE_MOVEMENT_NS = "TimetableMovement";
     public static final String MAPPING_FILE = "roomMapping";
-    public static final String LINESTRING = "LINESTRING";
+    public static final String LINESTRING = "POINT";
     public static final String ROOM_STRING = "# Room:";
 
-    private File description;
+    private final File description;
 
-    public MapDescriptionReader(File mapName) {
-        description = extractFilename(mapName);
+    public MapDescriptionReader() {
+
+        description = extractFilename();
     }
 
-    private File extractFilename(File roomFile) {
+    private File extractFilename() {
         Settings settings = new Settings(TIMETABLE_MOVEMENT_NS);
         String mapping = settings.getSetting(MAPPING_FILE);
-        File mappingFile = new File(mapping);
-        return mappingFile;
+        return new File(mapping);
     }
 
     private RoomType convertNameToRoomType(String name) {
@@ -43,7 +41,7 @@ public class MapDescriptionReader {
         return RoomType.LEISURE;
     }
 
-    public HashMap<RoomType, List<Coord>> readDescription() throws IOException {
+    public HashMap<RoomType, List<Coord>> readDescription(Coord offset) throws IOException {
         BufferedReader fileReader = new BufferedReader(new FileReader(description));
         String line = fileReader.readLine();
         HashMap<RoomType, List<Coord>> mapping = new HashMap<>();
@@ -53,9 +51,7 @@ public class MapDescriptionReader {
                 // We got a mapping
                 String roomName = line.substring(ROOM_STRING.length());
                 currType = convertNameToRoomType(roomName);
-                if (mapping.get(currType) == null) {
-                    mapping.put(currType, new ArrayList<>());
-                }
+                mapping.computeIfAbsent(currType, k -> new ArrayList<>());
             } else if (line.startsWith(LINESTRING)) {
                 String coordString = line.substring(LINESTRING.length()+2, line.length()-2);
                 Scanner s = new Scanner(coordString);
@@ -66,8 +62,9 @@ public class MapDescriptionReader {
                 } catch (RuntimeException e) {
                     throw new IOException("Bad coordinate values: '" + coordString + "'");
                 }
-                Coord coord = new Coord(x, y);
-//                System.out.println("Adding " + coord + " with type " + currType);
+                Coord coord = new Coord(x, -y);
+                coord.translate(-offset.getX(), -offset.getY());
+                System.out.println("Adding " + coord + " with type " + currType);
                 mapping.get(currType).add(coord);
             } else {
                 throw new IOException("Unknown line\"" + line + "\" in room description!");
