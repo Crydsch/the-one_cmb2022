@@ -1,57 +1,66 @@
-# Wichtig für uns sind:
-# Cluster Spreading Settings in den cmb_samples
-# Und Map Based Movement
-# Cluster definiert nämlich ähnliches zu dem was wir brauchen... nodes die keine neuen Wegpunkte mehr zurückbekommen (und daher stationär sind)
-# und Wegpunkte, die sich bewegen (5 davon). Diese kriegen einen neuen Punkt von der Karte wieder und laufen dann zu diesem neuen Punkt
-# Hier sind wait times definiert, das heißt davon kann man sich sicherlich etwas abschauen
-# Das einzige was ich noch nicht weiß, sind die Räume und diese werden wir aller vorraussicht nach von Hand erstellen müssen...
-# Weil OSM keine konkreten Wege in die Räume beinhaltet
+# Configuration for the RumorSpreading scenario
+# The TimetableMovement configuration parameters are contained in the Movement class
+# and the MapDescriptionReader
 
 Scenario.name = RumorSpreading
 Scenario.endTime = 1000
 Scenario.updateInterval = 1
-Scenario.simulateConnections = false
+Scenario.simulateConnections = true
 MovementModel.worldSize = 200,200
-Report.nrofReports = 0
-Events.nrof = 0
 
+# Define the students / moving nodes
 Scenario.nrofHostGroups = 1
+Group.bufferSize = 5M
 Group1.groupID = x
 Group1.nrofHosts = 20
 Group1.nrofInterfaces = 1
 Group1.interface1 = myInterface
+Group1.bufferSize = 50M
 myInterface.type = SimpleBroadcastInterface
-myInterface.transmitRange = 1.5
+myInterface.transmitRange = 2
 myInterface.transmitSpeed = 150k
 Group1.movementModel = TimetableMovement
-Group1.router = PassiveRouter
+Group1.router = EpidemicRouter
 Group1.routeFile = data/TUM_MI_Faculty/tum_mi_l0.wkt
 Group1.routeType = 1
 
+# Configuring the movement
 MapBasedMovement.nrofMapFiles = 3
 MapBasedMovement.mapFile1 = data/TUM_MI_Faculty/tum_mi_l0.wkt
 MapBasedMovement.mapFile2 = data/TUM_MI_Faculty/entries.wkt
-TimetableMovement.nrofStartMap = 2
-# For this to be the destination, the map has to specified in
-# the "okMaps" config param
 MapBasedMovement.mapFile3 = data/TUM_MI_Faculty/tum_mi_rooms.wkt
+TimetableMovement.roomMapping = data/TUM_MI_Faculty/tum_mi_rooms_description.wkt
+TimetableMovement.nrofStartMap = 2
+# The "rooms" or destinations for the timetable (mapFile3)
 Group1.okMaps = 3
+
+# The spawning probabilites for the different entries. Used in the
+# order as they appear in the wkt (main, east, west, south)
+TimetableMovement.spawnProbability = 65,10,20,5
+
+# Probability with which the nodes attend a lecture, seminar room, pc rooms/bib/tables, leisure
+TimetableMovement.activityProbability = 40,20,35,5
+
 # Time in hours (7 == 07:00 in the morning, 21 == 21:00 in evening)
 TimetableMovement.startOfDay = 7
+# Must be a value >= 1 (1 internal step equals n seconds)
+TimetableMovement.secondsPer1Iter = 60
 TimetableMovement.defActivities = 3
 # Duration in hours
 TimetableMovement.defActivityDur = 2
 # Time in hours
 TimetableMovement.pauseBetweenActivities = 2
-# Must be a value >= 1 (1 internal step equals n seconds)
-TimetableMovement.secondsPer1Iter = 60
-TimetableMovement.roomMapping = data/TUM_MI_Faculty/tum_mi_rooms_description.wkt
-# The spawning probabilites for the different entries. Used in the
-# order as they appear in the wkt (main, east, west, south)
-TimetableMovement.spawnProbability = 65,10,20,5
-# Probability with which the nodes attend a lecture, seminar room, pc rooms/bib/tables, leisure
-TimetableMovement.activityProbability = 40,20,35,5
 
+# Message creation
+Events.nrof = 1
+Events1.class = SingleMessageGenerator
+Events1.interval = 100k,100k
+Events1.size = 50k,70k
+Events1.hosts = 1,20
+Events1.toHosts = 0,0
+Events1.prefix = M
+
+# Reporting
 Report.nrofReports = 1
-Report.report1 = MovementNs2Report
-Report.reportDir = reports
+Report.report1 = MessageStatsReport
+Report.reportDir = reports/
