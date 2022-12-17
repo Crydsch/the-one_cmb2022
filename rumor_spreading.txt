@@ -39,15 +39,18 @@ Group1.okMaps = 3
 # Time in hours (7 == 07:00 in the morning, 21 == 21:00 in evening)
 TimetableMovement.startOfDay = 7
 TimetableMovement.defActivities = 3
+# Duration in hours
 TimetableMovement.defActivityDur = 2
+# Time in hours
+TimetableMovement.pauseBetweenActivities = 2
 # Must be a value >= 1 (1 internal step equals n seconds)
 TimetableMovement.secondsPer1Iter = 60
 TimetableMovement.roomMapping = data/TUM_MI_Faculty/tum_mi_rooms_description.wkt
 # The spawning probabilites for the different entries. Used in the
 # order as they appear in the wkt (main, east, west, south)
 TimetableMovement.spawnProbability = 65,10,20,5
-# Probability with which the nodes attend a lecture, seminar room, bib, or pc rooms
-TimetableMovement.activityProbability = 40,30,10,20
+# Probability with which the nodes attend a lecture, seminar room, pc rooms/bib/tables, leisure
+TimetableMovement.activityProbability = 40,20,35,5
 
 Report.nrofReports = 1
 Report.report1 = MovementNs2Report
