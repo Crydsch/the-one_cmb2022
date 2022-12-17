@@ -10,7 +10,6 @@ import movement.map.SimMap;
 import movement.map.TimetableNode;
 import util.RoomType;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -89,8 +88,9 @@ public class TimetableMovement extends MapBasedMovement {
         return mapping;
     }
 
-    private MapNode selectNodeOfType(Vector<RoomType> types) {
-        HashSet<Coord> possibleCoords = new HashSet<>();
+    // TODO: Fix
+    private MapNode selectRandomNodeOfType(Vector<RoomType> types) {
+        Vector<Coord> possibleCoords = new Vector<>();
         for (RoomType type : types) {
             List<Coord> coords = roomMapping.get(type);
             if (coords == null)
@@ -99,35 +99,23 @@ public class TimetableMovement extends MapBasedMovement {
         }
         if (possibleCoords.isEmpty())
             throw new RuntimeException("No rooms for given types found!");
-        else
-            System.out.println("Possible coords: " + possibleCoords);
+//        else
+//            System.out.println("Possible coords: " + possibleCoords);
 
         SimMap map = getMap();
         List<MapNode> mapNodes = map.getNodes();
-//        System.out.println(Arrays.toString(mapNodes.toArray()));
         MapNode nextNode;
-        nextNode = mapNodes.get(0);
-//        Coord location = nextNode.getLocation();
-//        location.translate(offset.getX(), offset.getY());
-//        System.out.println("0: "+ location);
-        return mapNodes.get(0);
-        /*
-        for (int i = 0; i < mapNodes.size(); i++) {
-            nextNode = mapNodes.get(i);
-            if (possibleCoords.contains(nextNode.getLocation())) {
-                System.out.println("Geht doch!");
-                return nextNode;
-            }
-        }
-        do {
+        int counter = 0;
+        while(true) {
             nextNode = mapNodes.get(rng.nextInt(mapNodes.size()));
-//            System.out.println("Node coord: " + nextNode.getLocation());
             if (possibleCoords.contains(nextNode.getLocation()))
                 break;
-        } while(!possibleCoords.contains(nextNode.getLocation()));
-        System.out.println("Found node for types");
+            if (counter++ > 20000)
+                break;
+        }
+        if (counter > 20000)
+            throw new RuntimeException("Failed to find nodes for type " + types);
         return nextNode;
-        */
     }
 
     private HashMap<Integer, List<TimetableNode>> fillTimetable(int user) {
@@ -184,19 +172,18 @@ public class TimetableMovement extends MapBasedMovement {
         for (int i = 0; i < activites; i++) {
             if (timeBeforeAct < 12) {
                 // Morning, learn or lecture
-                nextActivity = selectNodeOfType(morningTypes);
+                nextActivity = selectRandomNodeOfType(morningTypes);
             } else if (12 < timeBeforeAct && timeBeforeAct < 14) {
                 // Eating
-                nextActivity = selectNodeOfType(lunchTypes);
+                nextActivity = selectRandomNodeOfType(lunchTypes);
             } else {
                 // Afternoon, both learning and leisure
-                nextActivity = selectNodeOfType(afternoonTypes);
+                nextActivity = selectRandomNodeOfType(afternoonTypes);
             }
             TimetableNode nextNode = new TimetableNode(nextActivity, startTime + 0.2 + (i*defDuration));
             timeplan.add(nextNode);
             timeBeforeAct += defDuration + activityGap;
         }
-        System.out.println("Finished creation of activity timetable");
         // -------------------------------------------------------------------
 
 
