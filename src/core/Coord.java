@@ -111,7 +111,7 @@ public class Coord implements Cloneable, Comparable<Coord> {
 			return true;
 		}
 		else {
-			return (x == c.x && y == c.y); // XXX: == for doubles...
+			return (x - c.x) < 1e-9 && (y - c.y) < 1e-9;
 		}
 	}
 
