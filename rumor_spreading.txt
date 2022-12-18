@@ -3,28 +3,49 @@
 # and the MapDescriptionReader
 
 Scenario.name = RumorSpreading
-Scenario.endTime = 1000
+Scenario.endTime = 600
 Scenario.updateInterval = 1
 Scenario.simulateConnections = true
-MovementModel.worldSize = 200,200
+MovementModel.worldSize = 200,80
 
-# Define the students / moving nodes
-Scenario.nrofHostGroups = 1
-Group.bufferSize = 5M
-Group1.groupID = x
-Group1.nrofHosts = 20
-Group1.nrofInterfaces = 1
-Group1.interface1 = myInterface
-Group1.bufferSize = 50M
+# Define the students / moving nodes + destination node
+Scenario.nrofHostGroups = 2
+# Can take maximally 2 rumors
+Group.bufferSize = 200k
+Group.router = EpidemicRouter
+
+# The static destination node
+Group1.groupID = dest
+Group1.nrofHosts = 1
+Group1.bufferSize = 100k
+Group1.movementModel = StationaryMovement
+Group1.nodeLocation = 0,0
+Group1.nrofInterfaces = 0
+
+# Message creation and routing
+Group2.groupID = x
+Group2.nrofHosts = 200
+Group2.nrofInterfaces = 1
+Group2.interface1 = myInterface
 myInterface.type = SimpleBroadcastInterface
 myInterface.transmitRange = 2
-myInterface.transmitSpeed = 150k
-Group1.movementModel = TimetableMovement
-Group1.router = EpidemicRouter
-Group1.routeFile = data/TUM_MI_Faculty/tum_mi_l0.wkt
-Group1.routeType = 1
+myInterface.transmitSpeed = 1k
+Group2.routeFile = data/TUM_MI_Faculty/tum_mi_l0.wkt
+Group2.routeType = 1
+Group2.speed = 5,15
+
+# Message creation
+Events.nrof = 1
+Events1.class = SingleMessageGenerator
+Events1.interval = 1k,2k
+Events1.size = 100k,100k
+Events1.hosts = 0,200
+# Want to reach our static destination host
+Events1.toHosts = 0,0
+Events1.prefix = M
 
 # Configuring the movement
+Group2.movementModel = TimetableMovement
 MapBasedMovement.nrofMapFiles = 3
 MapBasedMovement.mapFile1 = data/TUM_MI_Faculty/tum_mi_l0.wkt
 MapBasedMovement.mapFile2 = data/TUM_MI_Faculty/entries.wkt
@@ -32,7 +53,7 @@ MapBasedMovement.mapFile3 = data/TUM_MI_Faculty/tum_mi_rooms.wkt
 TimetableMovement.roomMapping = data/TUM_MI_Faculty/tum_mi_rooms_description.wkt
 TimetableMovement.nrofStartMap = 2
 # The "rooms" or destinations for the timetable (mapFile3)
-Group1.okMaps = 3
+Group2.okMaps = 3
 
 # The spawning probabilites for the different entries. Used in the
 # order as they appear in the wkt (main, east, west, south)
@@ -45,22 +66,24 @@ TimetableMovement.activityProbability = 40,20,35,5
 TimetableMovement.startOfDay = 7
 # Must be a value >= 1 (1 internal step equals n seconds)
 TimetableMovement.secondsPer1Iter = 60
-TimetableMovement.defActivities = 3
+TimetableMovement.defActivities = 4
 # Duration in hours
 TimetableMovement.defActivityDur = 2
 # Time in hours
 TimetableMovement.pauseBetweenActivities = 2
 
-# Message creation
-Events.nrof = 1
-Events1.class = SingleMessageGenerator
-Events1.interval = 100k,100k
-Events1.size = 50k,70k
-Events1.hosts = 1,20
-Events1.toHosts = 0,0
-Events1.prefix = M
-
 # Reporting
-Report.nrofReports = 1
-Report.report1 = MessageStatsReport
+Report.nrofReports = 3
 Report.reportDir = reports/
+# Reporting stats from the message transfer
+Report.report1 = MessageStatsReport
+# Reporting stats for the inter contact time
+Report.report2 = ContactTimesReport
+ContactTimesReport.granularity = 1
+# Creating a density report
+Report.report3 = NodeDensityReport
+NodeDensityReport.outputGnuplot = true
+NodeDensityReport.sampleInterval = 20
+NodeDensityReport.xCount = 50
+NodeDensityReport.yCount = 50
+NodeDensityReport.onlyAverage = true
