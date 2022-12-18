@@ -3,6 +3,7 @@ package movement;
 import core.Coord;
 import core.Settings;
 import core.SimClock;
+import core.SimScenario;
 import input.MapDescriptionReader;
 import movement.map.DijkstraPathFinder;
 import movement.map.MapNode;
@@ -24,28 +25,25 @@ public class TimetableMovement extends MapBasedMovement {
     private static HashMap<RoomType, List<Coord>> roomMapping;
     // Used to differentiate the users
     private final int userNum;
+    private boolean isActive;
     private static int processedUsers = 0;
 
     /** Configuration parameters **/
     public static final String TIMETABLE_MOVEMENT_NS = "TimetableMovement";
     public static final String START_MAP_NUM = "nrofStartMap";
     public static final String START_DAY_TIME = "startOfDay";
+    public static final String END_DAY_TIME = "endOfDay";
     public static final String NUM_ACTIVITIES = "defActivities";
     public static final String DEF_DUR = "defActivityDur";
     public static final String ACTIVITY_GAP = "pauseBetweenActivities";
     public static final String SPAWN_PROBS = "spawnProbability";
     public static final String ACT_PROBS = "activityProbability";
 
-    // Below are some general settings to get more information
-    public static final String SCENARIO_NS = "Scenario";
-    public static final String GROUP_NS = "Group";
-    public static final String HOST_GROUPS = "nrofHostGroups";
-    public static  final String NUM_HOSTS = "nrofHosts";
-
     public TimetableMovement(Settings settings) {
         super(settings);
         nrofHosts = getNumOfHosts();
         userNum = processedUsers++;
+        isActive = true;
         timetable = fillTimetable(userNum);
         // Cheating to actually use all nodes for the path
         int[] allowed = new int[32];
@@ -58,17 +56,18 @@ public class TimetableMovement extends MapBasedMovement {
         this.userNum = processedUsers++;
         this.nrofHosts = tm.nrofHosts;
         this.pathFinder = tm.pathFinder;
+        this.isActive = true;
         fillTimetable(this.userNum);
 //        System.out.println("Timetable contains: " + timetable.get(userNum).size() + " elems");
     }
 
     private int getNumOfHosts() {
-        Settings settings = new Settings(SCENARIO_NS);
-        int hostGroups = settings.getInt(HOST_GROUPS);
+        Settings settings = new Settings(SimScenario.SCENARIO_NS);
+        int hostGroups = settings.getInt(SimScenario.NROF_GROUPS_S);
         int numHosts = 0;
         for (int i = 1; i <= hostGroups; i++) {
-            Settings groupSetting = new Settings(GROUP_NS + i);
-            numHosts += groupSetting.getInt(NUM_HOSTS);
+            Settings groupSetting = new Settings(SimScenario.GROUP_NS + i);
+            numHosts += groupSetting.getInt(SimScenario.NROF_HOSTS_S);
         }
         return numHosts;
     }
@@ -128,10 +127,17 @@ public class TimetableMovement extends MapBasedMovement {
             roomMapping = createRoomMapping();
 
         Settings settings = new Settings(TIMETABLE_MOVEMENT_NS);
-        int numStartMap = settings.getInt(START_MAP_NUM);
-        int defDuration = settings.getInt(DEF_DUR);
+        Settings scenarioSettings = new Settings(SimScenario.SCENARIO_NS);
+        double defDuration = settings.getDouble(DEF_DUR);
         double startTime = settings.getDouble(START_DAY_TIME);
+        double endTime = settings.getDouble(END_DAY_TIME);
+        double dayDuration = endTime - startTime;
+        double steps = scenarioSettings.getDouble(SimScenario.END_TIME_S);
+        double stepsPerHour = Math.floor(steps / dayDuration);
+
         double activityGap = settings.getDouble(ACTIVITY_GAP) * (10.0/6);
+
+        int numStartMap = settings.getInt(START_MAP_NUM);
         int[] probs = settings.getCsvInts(SPAWN_PROBS, 4);
 
         // Calculate the start position based on probabilities
@@ -154,7 +160,7 @@ public class TimetableMovement extends MapBasedMovement {
 //        System.out.println("User " + user + " index " + index);
         start = filteredNodes.get(index);
 
-        TimetableNode startNode = new TimetableNode(start, startTime);
+        TimetableNode startNode = new TimetableNode(start, 0., stepsPerHour);
         timeplan.add(startNode);
 
         // -------------------------------------------------------------------
@@ -173,28 +179,29 @@ public class TimetableMovement extends MapBasedMovement {
         Vector<RoomType> lunchTypes = new Vector<>(Arrays.asList(RoomType.MENSA));
         Vector<RoomType> afternoonTypes = new Vector<>(Arrays.asList(RoomType.SEMINAR_ROOM, RoomType.PC_ROOM, RoomType.LECTURE_HALL, RoomType.LIBRARY, RoomType.TABLE));
         for (int i = 0; i < activites; i++) {
-            if (timeBeforeAct < 12) {
+            if (timeBeforeAct < 12 * stepsPerHour) {
                 // Morning, learn or lecture
                 nextActivity = selectRandomNodeOfType(morningTypes);
-            } else if (12 < timeBeforeAct && timeBeforeAct < 14) {
+            } else if (12 * stepsPerHour < timeBeforeAct && timeBeforeAct < 14 * stepsPerHour) {
                 // Eating
                 nextActivity = selectRandomNodeOfType(lunchTypes);
             } else {
                 // Afternoon, both learning and leisure
                 nextActivity = selectRandomNodeOfType(afternoonTypes);
             }
-            TimetableNode nextNode = new TimetableNode(nextActivity, startTime + 0.2 + (i*defDuration));
+            TimetableNode nextNode = new TimetableNode(nextActivity, timeBeforeAct, stepsPerHour);
             timeplan.add(nextNode);
-            timeBeforeAct += defDuration + activityGap;
+            timeBeforeAct += (defDuration + activityGap) * stepsPerHour;
         }
         // -------------------------------------------------------------------
 
 
         // Currently leave the build were we entered
-        TimetableNode endNode = new TimetableNode(start, Math.min(16.0, timeBeforeAct));
+        TimetableNode endNode = new TimetableNode(start, Math.min(endTime * stepsPerHour, timeBeforeAct), stepsPerHour);
         timeplan.add(endNode);
-
+        System.out.println("Timetable for " + userNum + " has " + timeplan.size() + " entries");
         timetable.put(userNum, timeplan);
+
         return timetable;
     }
 
@@ -220,6 +227,7 @@ public class TimetableMovement extends MapBasedMovement {
         double currentTime = SimClock.getTime();
         MapNode nextNode = null;
         TimetableNode timeNode;
+        boolean allHappend = false;
         for (int i = 1; i < nextNodes.size(); i++) {
             timeNode = nextNodes.get(i);
             switch (timeNode.canExecute(currentTime)) {
@@ -229,16 +237,21 @@ public class TimetableMovement extends MapBasedMovement {
                 case 0:
                     if (lastMapNode == timeNode.getNode())
                         return null;
+                    System.out.println("Selecting " + i + " event for " + userNum);
                     nextNode = timeNode.getNode();
                     break;
                 case -1:
                     // Already happened, continue
+                    if (i + 1 == nextNodes.size())
+                        allHappend = true;
                     continue;
                 default:
                     System.out.println("Unknown return type!");
                     return null;
             }
         }
+        if (allHappend && lastMapNode.equals(nextNodes.get(nextNodes.size()-1)))
+            isActive = false;
         if (nextNode == null)
             return null;
 
@@ -252,6 +265,11 @@ public class TimetableMovement extends MapBasedMovement {
         }
         lastMapNode = nextNode;
         return p;
+    }
+
+    @Override
+    public boolean isActive() {
+        return isActive;
     }
 
     @Override
