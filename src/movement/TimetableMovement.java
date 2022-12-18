@@ -102,6 +102,8 @@ public class TimetableMovement extends MapBasedMovement {
 //        else
 //            System.out.println("Possible coords: " + possibleCoords);
 
+        // Try
+//        MapNode fromNode = getMap().getNodeByCoord(from);
         SimMap map = getMap();
         List<MapNode> mapNodes = map.getNodes();
         MapNode nextNode;
