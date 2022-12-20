@@ -26,12 +26,13 @@ def exportToPdf(fig, filename):
     fig.savefig(filename, bbox_inches='tight', format='pdf')
     print(f"Wrote output to {filename}")
 
-def plotLinestring(df, title, xdata, ydata, output, xmin=0, ymin=0, hue=None):
+def plotLinestring(df, title, xdata, ydata, output, ylabel=None, xlabel=None, xmin=0, ymin=0, hue=None):
     """
     Plotting a linestring from given dataframe and saving to the specified output path.
     """
 
     fig, ax = plt.subplots()
+    plt.grid()
 
     if hue is None:
         sns.lineplot(data=df, x=xdata, y=ydata, marker="o")
@@ -41,13 +42,21 @@ def plotLinestring(df, title, xdata, ydata, output, xmin=0, ymin=0, hue=None):
     plt.title(title)
     ax.set_xlim(xmin=xmin)
     ax.set_ylim(ymin=ymin)
-    plt.grid()
+    if ylabel is not None:
+        ax.set_ylabel(ylabel)
+    if xlabel is not None:
+        ax.set_xlabel(xlabel)
     
     exportToPdf(fig, output)
 
 
-def plotBarplot(df, title, xdata, ydata, output, xmin=0, ymin=0, hue=None):
+def plotBarplot(df, title, xdata, ydata, output, ylabel=None, xlabel=None, xmin=0, ymin=0, hue=None):
+    """
+    Plotting a barplot for the given dataframe and save to output path.
+    """
+    
     fig, ax = plt.subplots()
+    ax.grid()
 
     if hue is None:
         sns.barplot(data=df, x=xdata, y=ydata)
@@ -57,8 +66,11 @@ def plotBarplot(df, title, xdata, ydata, output, xmin=0, ymin=0, hue=None):
     plt.title(title)
     ax.set_xlim(xmin=xmin)
     ax.set_ylim(ymin=ymin)
-    plt.grid()
-    
+    if ylabel is not None:
+        ax.set_ylabel(ylabel)
+    if xlabel is not None:
+        ax.set_xlabel(xlabel)
+
     exportToPdf(fig, output)
 
 def plotContactTimes(args):
@@ -109,8 +121,72 @@ def plotMessageCopyCount(args):
     copyCountPath = args.input[0]
     df = parseMessageCopyCount(copyCountPath)
 
-    plotLinestring(df=df, title="Message Copy Count", xdata="Time", ydata="CopyCount", output=args.output, hue="MessageName")
+    plotBarplot(df=df, title="Rumor Spread Count", xdata="Time", ydata="CopyCount", output=args.output, ylabel="# Rumor Spread", xlabel="Time in Iterations", hue="MessageName")
 
+def parseMessageStats(path):
+
+    labels = ["Success", "Aborted", "Dropped", "Removed", "Delivered"]
+    data = []
+
+    def parseInt(name, line):
+        line = line.lower()
+        name = name.lower()
+        value = re.findall(f"{name}: ([\d]+)", line)
+        if value is None:
+            print(f"Failed to parse {name} from ", line)
+            exit(0)
+        return int(value[0])
+
+    total = 0
+    relayed = 0
+    with open(path) as file:
+        for line in file:
+            # if line.startswith("created"):
+                # data.append(parseInt("created", line))
+            if line.startswith("started"):
+                total = parseInt("started", line)
+            if line.startswith("relayed"):
+                relayed = parseInt("relayed", line)
+                data.append(relayed)
+            if line.startswith("aborted"):
+                data.append(total-relayed)
+            if line.startswith("dropped"):
+                data.append(parseInt("dropped", line))
+            if line.startswith("removed"):
+                data.append(parseInt("removed", line))
+            if line.startswith("delivered"):
+                data.append(parseInt("delivered", line))
+
+    data = [e for e in data if e > 0]
+    labels = labels[:len(data)]
+
+    return data, labels
+
+def plotPiePlot(data, labels, output):
+    """
+    Plotting a pie plot with the given values and labels.
+    """
+
+    if len(data) != len(labels):
+        print("Number of labels does not match stats!")
+        exit(1)
+
+    fig, ax = plt.subplots()
+
+    plt.pie(data, labels=labels)
+
+    exportToPdf(fig, output)
+
+
+def plotMessageStats(args):
+    """
+    Gets the message stat report and creates pie plots
+    """
+
+    messageStatPath = args.input[0]
+    messageStats, labels = parseMessageStats(messageStatPath)
+
+    plotPiePlot(messageStats, labels, args.output)
 
 if __name__ == '__main__':
 
@@ -132,3 +208,5 @@ if __name__ == '__main__':
             plotContactTimes(args=result)
         elif inp.__contains__("messagecopy"):
             plotMessageCopyCount(args=result)
+        elif inp.__contains__("messagestats"):
+            plotMessageStats(args=result)
