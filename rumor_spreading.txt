@@ -8,12 +8,16 @@ Scenario.endTime = 5k
 Scenario.updateInterval = 1
 Scenario.simulateConnections = true
 MovementModel.worldSize = 200,80
+MovementModel.rngSeed = 0
+
+# Router Settings
+RumorRouter.rngSeed = 0
 
 # Define the students / moving nodes + destination node
 Scenario.nrofHostGroups = 2
 # Can take maximally 2 rumors
 Group.bufferSize = 2M
-Group.router = EpidemicRouter
+Group.router = RumorRouter
 
 # The static destination node
 Group1.groupID = dest
@@ -31,6 +35,7 @@ Group2.interface1 = myInterface
 myInterface.type = SimpleBroadcastInterface
 myInterface.transmitRange = 2
 # Transmit one rumor per less of 2 hours (roughly 1.5h)
+#  in Bps
 myInterface.transmitSpeed = 1.4k
 Group2.routeFile = data/TUM_MI_Faculty/tum_mi_l0.wkt
 Group2.routeType = 1
@@ -39,9 +44,10 @@ Group2.speed = 2,2
 # Message creation
 Events.nrof = 1
 Events1.class = SingleMessageGenerator
-Events1.interval = 2k,3k
-Events1.size = 1M,1M
-Events1.hosts = 0,20
+# Set interval so big it never creates another message
+Events1.interval = 1M
+Events1.size = 1M
+Events1.hosts = 1,20
 # Want to reach our static destination host
 Events1.toHosts = 0,0
 Events1.prefix = M
