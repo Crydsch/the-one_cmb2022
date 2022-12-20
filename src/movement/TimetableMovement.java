@@ -22,7 +22,8 @@ public class TimetableMovement extends MapBasedMovement {
     private final int nrofHosts;
     private final DijkstraPathFinder pathFinder;
     private static HashMap<Integer, List<TimetableNode>> timetable;
-    private static HashMap<RoomType, List<Coord>> roomMapping;
+    private static HashMap<RoomType, List<Map.Entry<Coord, Integer>>> roomMapping;
+    private static HashMap<Coord, Integer> roomContained;
     // Used to differentiate the users
     private final int userNum;
     private boolean isActive;
@@ -72,12 +73,12 @@ public class TimetableMovement extends MapBasedMovement {
         return numHosts;
     }
 
-    private HashMap<RoomType, List<Coord>> createRoomMapping() {
+    private HashMap<RoomType, List<Map.Entry<Coord, Integer>>> createRoomMapping() {
         if (roomMapping != null) {
             return roomMapping;
         }
         MapDescriptionReader reader = new MapDescriptionReader();
-        HashMap<RoomType, List<Coord>> mapping = null;
+        HashMap<RoomType, List<Map.Entry<Coord, Integer>>> mapping = null;
         try {
             mapping = reader.readDescription(offset);
         } catch (IOException e) {
@@ -91,10 +92,10 @@ public class TimetableMovement extends MapBasedMovement {
     private MapNode selectRandomNodeOfType(Vector<RoomType> types) {
         Vector<Coord> possibleCoords = new Vector<>();
         for (RoomType type : types) {
-            List<Coord> coords = roomMapping.get(type);
+            List<Map.Entry<Coord, Integer>> coords = roomMapping.get(type);
             if (coords == null)
                 continue;
-            possibleCoords.addAll(coords);
+            possibleCoords.addAll(coords.stream().map(Map.Entry::getKey).collect(Collectors.toList()));
         }
         if (possibleCoords.isEmpty())
             throw new RuntimeException("No rooms for given types found!");
