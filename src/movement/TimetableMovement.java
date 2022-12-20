@@ -199,7 +199,7 @@ public class TimetableMovement extends MapBasedMovement {
         // Currently leave the build were we entered
         TimetableNode endNode = new TimetableNode(start, Math.min(endTime * stepsPerHour, timeBeforeAct), stepsPerHour);
         timeplan.add(endNode);
-        System.out.println("Timetable for " + userNum + " has " + timeplan.size() + " entries");
+//        System.out.println("Timetable for " + userNum + " has " + timeplan.size() + " entries");
         timetable.put(userNum, timeplan);
 
         return timetable;
@@ -237,7 +237,7 @@ public class TimetableMovement extends MapBasedMovement {
                 case 0:
                     if (lastMapNode == timeNode.getNode())
                         return null;
-                    System.out.println("Selecting " + i + " event for " + userNum);
+//                    System.out.println("Selecting " + i + " event for " + userNum);
                     nextNode = timeNode.getNode();
                     break;
                 case -1:
