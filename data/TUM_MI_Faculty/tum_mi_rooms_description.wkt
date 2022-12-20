@@ -1,38 +1,38 @@
-# Room: Corridor-Chair-10
+# Room: Corridor-Chair-10; Capacity: 30
 POINT (109.979 57.087)
-# Room: Coffeebar
+# Room: Coffeebar; Capacity: 10
 POINT (125.916 55.987)
-# Room: Leisure
+# Room: Leisure; Capacity: 30
 POINT (101.384 62.758)
-# Room: HS2
+# Room: HS2; Capacity: 100
 POINT (162.499 42.999)
-# Room: HS3
+# Room: HS3; Capacity: 100
 POINT (131.342 51.661)
-# Room: Tables
+# Room: Tables; Capacity: 50
 POINT (81.745 85.442)
-# Room: HS1
+# Room: HS1; Capacity: 200
 POINT (171.73 62.036)
-# Room: Corridor-Chair-5
+# Room: Corridor-Chair-5; Capacity: 30
 POINT (141.194 74.801)
-# Room: Seminar Room (iTüpferl)
+# Room: Seminar Room (iTüpferl); Capacity: 15
 POINT (116.707 79.326)
-# Room: Rechnerhalle
+# Room: Rechnerhalle; Capacity: 150
 POINT (131.63 76.491)
-# Room: HS1 Left Stairs
+# Room: HS1 Left Stairs; Capacity: 100
 POINT (171.848 67.429)
-# Room: Tables
+# Room: Tables; Capacity: 50
 POINT (138.744 69.052)
-# Room: Coffee machines
+# Room: Coffee machines; Capacity: 20
 POINT (104.242 59.022)
-# Room: Corridor-Chair-9
+# Room: Corridor-Chair-9; Capacity: 30
 POINT (71.485 87.288)
-# Room: HS1
+# Room: HS1; Capacity: 100
 POINT (172.907 58.366)
-# Room: Corridor-Chair-1
+# Room: Corridor-Chair-1; Capacity: 30
 POINT (188.815 39.563)
-# Room: Seminar room magistrale
+# Room: Seminar room magistrale; Capacity: 40
 POINT (81.745 85.442)
-# Room: Tables
+# Room: Tables; Capacity: 100
 POINT (68.065 76.858)
-# Room: Bib
+# Room: Bib; Capacity: 200
 POINT (29.728 82.818)
