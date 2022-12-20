@@ -73,18 +73,32 @@ TimetableMovement.defActivityDur = 2
 # Time in hours
 TimetableMovement.pauseBetweenActivities = .5
 
+# --------------------------------------------------------------------
 # Reporting
-Report.nrofReports = 3
+Report.nrofReports = 6
 Report.reportDir = reports/
+
 # Reporting stats from the message transfer
 Report.report1 = MessageStatsReport
+
 # Reporting stats for the inter contact time
-Report.report2 = ContactTimesReport
-ContactTimesReport.granularity = 1
+Report.report2 = LocationSnapshotReport
+LocationSnapshotReport.granularity = 357
+
 # Creating a density report
 Report.report3 = NodeDensityReport
 NodeDensityReport.outputGnuplot = true
 NodeDensityReport.sampleInterval = 20
-NodeDensityReport.xCount = 50
-NodeDensityReport.yCount = 50
+NodeDensityReport.xCount = 30
+NodeDensityReport.yCount = 30
 NodeDensityReport.onlyAverage = true
+
+Report.report4 = DeliveredMessagesReport
+
+# Created Messages
+Report.report5 = UniqueEncountersReport
+
+Report.report6 = MessageCopyCountReport
+MessageCopyCountReport.granularity = 357
+
+# --------------------------------------------------------------------
