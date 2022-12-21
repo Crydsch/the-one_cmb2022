@@ -1,6 +1,5 @@
 package movement;
 
-import com.sun.javafx.image.IntPixelGetter;
 import core.Coord;
 import core.Settings;
 import core.SimClock;
@@ -25,11 +24,10 @@ public class TimetableMovement extends MapBasedMovement {
     private static HashMap<Integer, List<TimetableNode>> timetable;
     private static HashMap<RoomType, List<Map.Entry<Coord, Integer>>> roomMapping;
     private static HashMap<Double, List<Map.Entry<Coord, Integer>>> peoplePerRoom;
-    private static HashMap<Coord, Integer> roomContained;
     // Used to differentiate the users
     private final int userNum;
     private boolean isActive;
-    private static int processedUsers = 0;
+    private static int processedUsers;
 
     /** Configuration parameters **/
     public static final String TIMETABLE_MOVEMENT_NS = "TimetableMovement";
@@ -41,6 +39,7 @@ public class TimetableMovement extends MapBasedMovement {
     public static final String ACTIVITY_GAP = "pauseBetweenActivities";
     public static final String SPAWN_PROBS = "spawnProbability";
     public static final String ACT_PROBS = "activityProbability";
+    public static final String VERBOSE = "verbose";
 
     public TimetableMovement(Settings settings) {
         super(settings);
@@ -144,7 +143,7 @@ public class TimetableMovement extends MapBasedMovement {
                 // No entry is found
                 peoplesInRoom.add(new AbstractMap.SimpleEntry<>(possibleCoords.get(index), roomCapacities.get(index)));
             }
-            if (counter++ > 10000) // Hard unlucky if this fails incorrectly
+            if (counter++ > 20000) // Hard unlucky if this fails incorrectly
                 throw new RuntimeException("Failed to find nodes for type " + types + " (maybe because all rooms full (" + totalCapacity + "))");
         }
         return nextNode;
@@ -236,10 +235,12 @@ public class TimetableMovement extends MapBasedMovement {
 //        System.out.println("Timetable for " + userNum + " has " + timeplan.size() + " entries");
         timetable.put(userNum, timeplan);
 
-        if (userNum + 1 == nrofHosts) {
-            printTimetable();
-            printRoomOccupation();
-        }
+        boolean verbose = settings.getBoolean(VERBOSE);
+        if (verbose)
+            if (userNum + 1 == nrofHosts) {
+                printTimetable();
+                printRoomOccupation();
+            }
 
         return timetable;
     }
@@ -349,4 +350,10 @@ public class TimetableMovement extends MapBasedMovement {
 
     @Override
     public TimetableMovement replicate() {return new TimetableMovement(this);}
+
+    public static void reset() {
+        timetable = new HashMap<>();
+        peoplePerRoom = new HashMap<>();
+        processedUsers = 0;
+    }
 }
