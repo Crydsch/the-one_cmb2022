@@ -31,14 +31,14 @@ Group1.nrofInterfaces = 0
 
 # Message creation and routing
 Group2.groupID = x
-Group2.nrofHosts = 920
+Group2.nrofHosts = 100
 Group2.nrofInterfaces = 1
 Group2.interface1 = myInterface
 myInterface.type = SimpleBroadcastInterface
 myInterface.transmitRange = 2
 # Transmit one rumor per less of 2 hours (roughly 1.5h)
 #  in Bps
-myInterface.transmitSpeed = 2.8k
+myInterface.transmitSpeed = 1.4k
 Group2.routeFile = data/TUM_MI_Faculty/tum_mi_l0.wkt
 Group2.routeType = 1
 Group2.speed = 2,2
