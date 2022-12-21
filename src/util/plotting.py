@@ -26,7 +26,7 @@ def exportToPdf(fig, filename):
     fig.savefig(filename, bbox_inches='tight', format='pdf')
     print(f"Wrote output to {filename}")
 
-def plotLinestring(df, title, xdata, ydata, output, ylabel=None, xlabel=None, xmin=0, ymin=0, hue=None):
+def plotLinestring(df, title, xdata, ydata, output, ylabel=None, xlabel=None, legendLabel=None, xmin=0, ymin=0, ylog=False, hue=None):
     """
     Plotting a linestring from given dataframe and saving to the specified output path.
     """
@@ -35,9 +35,13 @@ def plotLinestring(df, title, xdata, ydata, output, ylabel=None, xlabel=None, xm
     plt.grid()
 
     if hue is None:
-        sns.lineplot(data=df, x=xdata, y=ydata, marker="o")
+        sns.lineplot(data=df, x=xdata, y=ydata, palette="tab20", marker="o")
     else:
-        sns.lineplot(data=df, x=xdata, y=ydata, marker="o", hue=hue)
+        if not isinstance(hue, str) and len(hue) > 1:
+            base_hue = hue[0]
+            label = df["base_hue"].unique()
+        else:
+            sns.lineplot(data=df, x=xdata, y=ydata, palette="tab20", marker="o", hue=hue)
 
     plt.title(title)
     ax.set_xlim(xmin=xmin)
@@ -46,11 +50,15 @@ def plotLinestring(df, title, xdata, ydata, output, ylabel=None, xlabel=None, xm
         ax.set_ylabel(ylabel)
     if xlabel is not None:
         ax.set_xlabel(xlabel)
-    
+    if legendLabel is not None:
+        plt.legend(title=legendLabel)
+    if ylog:
+        ax.set_yscale("log")
+
     exportToPdf(fig, output)
 
 
-def plotBarplot(df, title, xdata, ydata, output, ylabel=None, xlabel=None, xmin=0, ymin=0, hue=None):
+def plotBarplot(df, title, xdata, ydata, output, ylabel=None, xlabel=None, legendLabel=None, xmin=0, ymin=0, hue=None):
     """
     Plotting a barplot for the given dataframe and save to output path.
     """
@@ -70,6 +78,8 @@ def plotBarplot(df, title, xdata, ydata, output, ylabel=None, xlabel=None, xmin=
         ax.set_ylabel(ylabel)
     if xlabel is not None:
         ax.set_xlabel(xlabel)
+    if legendLabel is not None:
+        plt.legend(title=legendLabel)
 
     exportToPdf(fig, output)
 
@@ -89,7 +99,8 @@ def parseMessageCopyCount(path):
     Parsing the message copy count report and returns a pandas dataframe.
     """
 
-    messageThreshold = 3
+    messageThreshold = 5
+    totalThreshold = 1
     messageName = "R"
     data = []
     with open(path) as file:
@@ -113,21 +124,28 @@ def parseMessageCopyCount(path):
     
     df = pd.DataFrame(data)
     timestamp = df["Time"].unique()
-    for time in timestamp:
-        timepoint = df[df["Time"] == time]
-        if len(timepoint) <= 3:
-            continue
-        filtered = timepoint[timepoint["CopyCount"] < messageThreshold]
-        # print(filtered)
-        count = filtered["CopyCount"].sum()
-        if count == 0:
-            continue
-        # print(count)
-        df = df.drop(index=filtered.index)
-        newDf = pd.DataFrame({"Time":time, "MessageName":"Others","CopyCount":count}, index=[0])
-        df = pd.concat([df, newDf], ignore_index=True)
+    # print(timestamp)
+    lastIter = timestamp[-1]
+    # print(lastIter)
+    filter = df[df["Time"] == lastIter]
+    # print(filter["MessageName"])
+    if len(filter["MessageName"].unique()) >= 3:
+        dropFilter = list(filter[filter["CopyCount"] < totalThreshold]["MessageName"])
+        # print(dropFilter)
+        below = list(filter[filter["CopyCount"] < messageThreshold]["MessageName"])
+        # print(below)
+        df = df[~df["MessageName"].isin(dropFilter)]
+        for time in timestamp:
+            timepoint = df[df["Time"] == time]
+            # print(timepoint)
+            filtered = timepoint[timepoint["MessageName"].isin(below)]
+            # print(filtered)
+            count = filtered["CopyCount"].sum()
+            # print(count)
+            df = df.drop(index=filtered.index)
+            newDf = pd.DataFrame({"Time":time, "MessageName":"Others","CopyCount":count}, index=[0])
+            df = pd.concat([df, newDf], ignore_index=True)
 
-    print(df)
     return df
 
 def plotMessageCopyCount(args):
@@ -136,9 +154,48 @@ def plotMessageCopyCount(args):
     """
 
     copyCountPath = args.input[0]
+    if args.dir is not None:
+        copyCountPath = os.path.join(args.dir, args.input[0])
+    prob = re.findall("_P(.*)?_D", copyCountPath)
+    if prob is not None:
+        prob = prob[0]
     df = parseMessageCopyCount(copyCountPath)
 
-    plotLinestring(df=df, title="Rumor Spread Count", xdata="Time", ydata="CopyCount", output=args.output, ylabel="# Rumor Spread", xlabel="Time in Iterations", hue="MessageName")
+    if prob is not None:
+        plotLinestring(df=df, title=f"Rumor Spread Count ({prob} %)", xdata="Time", ydata="CopyCount", output=args.output, ylabel="# Rumor Spread", xlabel="Time in Iterations", hue="MessageName")
+    else:
+        plotLinestring(df=df, title=f"Rumor Spread Count", xdata="Time", ydata="CopyCount", output=args.output, ylabel="# Rumor Spread", xlabel="Time in Iterations", hue="MessageName")
+
+def plotMultiMessageCount(args):
+
+    data = None
+    for file in args.input:
+        if args.dir is not None:
+            file = os.path.join(args.dir, file)
+        df = parseMessageCopyCount(file)
+        speed = re.findall("_D(.*)?k", file)
+        if speed is None:
+            print("Failed to extract speed from ", file)
+            speed = 1.75
+        else:
+            speed = speed[0]
+        df["Transmission Speed"] = float(speed)
+        prob = re.findall("_P(.*)?_D", file)
+        if prob is None:
+            print("Failed to extract speed from ", file)
+            prob = 0
+        else:
+            prob = prob[0]
+        df["Probability"] = float(prob)
+        if data is None:
+            data = pd.DataFrame(df)
+        else:
+            data = pd.concat([data, df], ignore_index=True)
+    
+    # print(data.to_markdown())
+
+    plotLinestring(data, "Rumor Spread Count", xdata="Time", ydata="CopyCount", output=args.output, hue="Probability", ylabel="# Rumor Spreads", ylog=False, ymin=0, legendLabel="Mutation Probability")
+    # plotBarplot(data, "Rumor Spread Count", xdata="Time", ydata="CopyCount", output=args.output, hue="Probability", ylabel="# Rumor Spreads", ymin=0, legendLabel="Mutation Probability")
 
 def parseMessageStats(path):
 
@@ -213,17 +270,18 @@ if __name__ == '__main__':
     parser.add_argument('-x', '--xaxis', type=str, required=False)
     parser.add_argument('-y', '--yaxis', type=str, required=False)
     parser.add_argument('-t', '--title', type=str, required=False)
+    parser.add_argument('-d', '--dir', type=str, required=False)
 
     result = parser.parse_args()
 
-    if len(result.input) > 1:
-        exit(0)
-    else:
-        inp = result.input[0]
-        inp = inp.lower()
-        if inp.__contains__("contacttime"):
-            plotContactTimes(args=result)
-        elif inp.__contains__("messagecopy"):
+    inp = result.input[0]
+    inp = inp.lower()
+    if inp.__contains__("contacttime"):
+        plotContactTimes(args=result)
+    elif inp.__contains__("messagecopy"):
+        if len(result.input) > 1:
+            plotMultiMessageCount(args=result)
+        else:
             plotMessageCopyCount(args=result)
-        elif inp.__contains__("messagestats"):
-            plotMessageStats(args=result)
+    elif inp.__contains__("messagestats"):
+        plotMessageStats(args=result)
