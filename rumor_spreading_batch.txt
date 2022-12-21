@@ -1,0 +1,113 @@
+# Configuration for the RumorSpreading scenario
+# The TimetableMovement configuration parameters are contained in the Movement class
+# and the MapDescriptionReader
+
+Scenario.name = RumorSpreading_P%%RumorRouter.mutationProbability%%_D%%myInterface.transmitSpeed%%
+# Fine grained enough
+Scenario.endTime = 5k
+Scenario.updateInterval = 1
+Scenario.simulateConnections = true
+MovementModel.worldSize = 200,80
+MovementModel.rngSeed = 0
+
+# Router Settings
+RumorRouter.rngSeed = 0
+RumorRouter.mutationProbability = [0;0.001;0.005;0.01;0.03;0.05;0.7;0.1]
+
+# Define the students / moving nodes + destination node
+Scenario.nrofHostGroups = 2
+# Can take maximally 2 rumors
+Group.bufferSize = 1G
+Group.router = RumorRouter
+
+
+# The static destination node
+Group1.groupID = dest
+Group1.nrofHosts = 1
+Group1.bufferSize = 1G
+Group1.movementModel = StationaryMovement
+Group1.nodeLocation = 0,0
+Group1.nrofInterfaces = 0
+
+# Message creation and routing
+Group2.groupID = x
+Group2.nrofHosts = 920
+Group2.nrofInterfaces = 1
+Group2.interface1 = myInterface
+myInterface.type = SimpleBroadcastInterface
+myInterface.transmitRange = 2
+# Transmit one rumor per less of 2 hours (roughly 1.5h)
+#  in Bps
+myInterface.transmitSpeed = [0.5k;0.75k;1k;1.25k;1.5k,1.75k;2k;2.25k;2.5k;2.75k;3k]
+Group2.routeFile = data/TUM_MI_Faculty/tum_mi_l0.wkt
+Group2.routeType = 1
+Group2.speed = 2,2
+
+# Message creation
+Events.nrof = 1
+Events1.class = SingleMessageGenerator
+# Set interval so big it never creates another message
+Events1.interval = 1M
+Events1.size = 1M
+Events1.hosts = 1,920
+# Want to reach our static destination host
+Events1.tohosts = 0,0
+Events1.prefix = R
+
+# Configuring the movement
+Group2.movementModel = TimetableMovement
+MapBasedMovement.nrofMapFiles = 3
+MapBasedMovement.mapFile1 = data/TUM_MI_Faculty/tum_mi_l0.wkt
+MapBasedMovement.mapFile2 = data/TUM_MI_Faculty/entries.wkt
+MapBasedMovement.mapFile3 = data/TUM_MI_Faculty/tum_mi_rooms.wkt
+TimetableMovement.roomMapping = data/TUM_MI_Faculty/tum_mi_rooms_description.wkt
+TimetableMovement.nrofStartMap = 2
+# The "rooms" or destinations for the timetable (mapFile3)
+Group2.okMaps = 3
+
+# The spawning probabilites for the different entries. Used in the
+# order as they appear in the wkt (main, east, west, south)
+TimetableMovement.spawnProbability = 65,10,20,5
+
+# Probability with which the nodes attend a lecture, seminar room, pc rooms/bib/tables, leisure
+TimetableMovement.activityProbability = 40,20,35,5
+TimetableMovement.verbose = false
+
+# Time in hours (7 == 07:00 in the morning, 21 == 21:00 in evening)
+TimetableMovement.startOfDay = 7
+TimetableMovement.endOfDay = 21
+TimetableMovement.defActivities = 4
+# Duration in hours
+TimetableMovement.defActivityDur = 2
+# Time in hours
+TimetableMovement.pauseBetweenActivities = 0.5
+
+# --------------------------------------------------------------------
+# Reporting
+Report.nrofReports = 6
+Report.reportDir = reports/
+
+# Reporting stats from the message transfer
+Report.report1 = MessageStatsReport
+
+# Reporting stats for the inter contact time
+Report.report2 = LocationSnapshotReport
+LocationSnapshotReport.granularity = 357
+
+# Creating a density report
+Report.report3 = NodeDensityReport
+NodeDensityReport.outputGnuplot = true
+NodeDensityReport.sampleInterval = 20
+NodeDensityReport.xCount = 30
+NodeDensityReport.yCount = 30
+NodeDensityReport.onlyAverage = true
+
+Report.report4 = DeliveredMessagesReport
+
+# Created Messages
+Report.report5 = UniqueEncountersReport
+
+Report.report6 = MessageCopyCountReport
+MessageCopyCountReport.granularity = 357
+
+# --------------------------------------------------------------------
