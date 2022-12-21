@@ -2,9 +2,7 @@ package input;
 
 import core.Coord;
 import core.Settings;
-import javafx.util.Pair;
 import util.RoomType;
-import util.Tuple;
 
 import java.io.*;
 import java.util.*;
