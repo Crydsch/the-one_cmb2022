@@ -89,6 +89,7 @@ def parseMessageCopyCount(path):
     Parsing the message copy count report and returns a pandas dataframe.
     """
 
+    messageThreshold = 3
     messageName = "R"
     data = []
     with open(path) as file:
@@ -111,6 +112,21 @@ def parseMessageCopyCount(path):
                 data.append({"Time":timestamp, "MessageName":name,"CopyCount":count})
     
     df = pd.DataFrame(data)
+    timestamp = df["Time"].unique()
+    for time in timestamp:
+        timepoint = df[df["Time"] == time]
+        if len(timepoint) <= 3:
+            continue
+        filtered = timepoint[timepoint["CopyCount"] < messageThreshold]
+        # print(filtered)
+        count = filtered["CopyCount"].sum()
+        if count == 0:
+            continue
+        # print(count)
+        df = df.drop(index=filtered.index)
+        newDf = pd.DataFrame({"Time":time, "MessageName":"Others","CopyCount":count}, index=[0])
+        df = pd.concat([df, newDf], ignore_index=True)
+
     print(df)
     return df
 
