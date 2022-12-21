@@ -44,4 +44,9 @@ public class TimetableNode {
     public MapNode getNode() {
         return node;
     }
+
+    @Override
+    public String toString() {
+        return node.toString() + " at " + startTime;
+    }
 }
