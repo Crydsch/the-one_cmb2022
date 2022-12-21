@@ -89,6 +89,7 @@ def parseMessageCopyCount(path):
     Parsing the message copy count report and returns a pandas dataframe.
     """
 
+    messageName = "R"
     data = []
     with open(path) as file:
         for line in file:
@@ -99,13 +100,13 @@ def parseMessageCopyCount(path):
                     print("Something went wrong during parsing! Cannot extract timestamp in line: ", line)
                     exit(1)
                 timestamp = int(timestamp[0])
-            if line.startswith("M"):
-                message = re.findall("M([\d]+) ([\d]+)", line)[0]
+            if line.startswith(messageName):
+                message = re.findall(f"{messageName}([\d]+) ([\d]+)", line)[0]
                 # print(message)
                 if message is None or len(message) < 2:
                     print("Something went wrong during parsing! Cannot extract count in line: ", line)
                     exit(1)
-                name = "M" + message[0]
+                name = messageName + message[0]
                 count = int(message[1])
                 data.append({"Time":timestamp, "MessageName":name,"CopyCount":count})
     
@@ -121,7 +122,7 @@ def plotMessageCopyCount(args):
     copyCountPath = args.input[0]
     df = parseMessageCopyCount(copyCountPath)
 
-    plotBarplot(df=df, title="Rumor Spread Count", xdata="Time", ydata="CopyCount", output=args.output, ylabel="# Rumor Spread", xlabel="Time in Iterations", hue="MessageName")
+    plotLinestring(df=df, title="Rumor Spread Count", xdata="Time", ydata="CopyCount", output=args.output, ylabel="# Rumor Spread", xlabel="Time in Iterations", hue="MessageName")
 
 def parseMessageStats(path):
 
