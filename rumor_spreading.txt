@@ -16,7 +16,7 @@ RumorRouter.rngSeed = 0
 # Define the students / moving nodes + destination node
 Scenario.nrofHostGroups = 2
 # Can take maximally 2 rumors
-Group.bufferSize = 2M
+Group.bufferSize = 1G
 Group.router = RumorRouter
 
 # The static destination node
@@ -49,8 +49,8 @@ Events1.interval = 1M
 Events1.size = 1M
 Events1.hosts = 1,20
 # Want to reach our static destination host
-Events1.toHosts = 0,0
-Events1.prefix = M
+Events1.tohosts = 0,0
+Events1.prefix = R
 
 # Configuring the movement
 Group2.movementModel = TimetableMovement
