@@ -1,5 +1,6 @@
 package movement;
 
+import com.sun.javafx.image.IntPixelGetter;
 import core.Coord;
 import core.Settings;
 import core.SimClock;
@@ -23,6 +24,7 @@ public class TimetableMovement extends MapBasedMovement {
     private final DijkstraPathFinder pathFinder;
     private static HashMap<Integer, List<TimetableNode>> timetable;
     private static HashMap<RoomType, List<Map.Entry<Coord, Integer>>> roomMapping;
+    private static HashMap<Double, List<Map.Entry<Coord, Integer>>> peoplePerRoom;
     private static HashMap<Coord, Integer> roomContained;
     // Used to differentiate the users
     private final int userNum;
@@ -88,35 +90,63 @@ public class TimetableMovement extends MapBasedMovement {
         return mapping;
     }
 
-    // TODO: Fix
-    private MapNode selectRandomNodeOfType(Vector<RoomType> types) {
+    /** Selecting a random node from rooms of the given type.
+     * @param types The types that should be used as rooms
+     * @param startingTime The point in time for which we want to select a room. Allows to include the room capacity.
+     * @return The next map node
+     */
+    private MapNode selectRandomNodeOfType(Vector<RoomType> types, double startingTime) {
         Vector<Coord> possibleCoords = new Vector<>();
+        Vector<Integer> roomCapacities = new Vector<>();
         for (RoomType type : types) {
             List<Map.Entry<Coord, Integer>> coords = roomMapping.get(type);
             if (coords == null)
                 continue;
             possibleCoords.addAll(coords.stream().map(Map.Entry::getKey).collect(Collectors.toList()));
+            roomCapacities.addAll(coords.stream().map(Map.Entry::getValue).collect(Collectors.toList()));
         }
         if (possibleCoords.isEmpty())
             throw new RuntimeException("No rooms for given types found!");
 //        else
 //            System.out.println("Possible coords: " + possibleCoords);
 
+        int totalCapacity = 0;
+        for(Integer capacity : roomCapacities) {
+            totalCapacity += capacity;
+        }
+//        System.out.println("The total capacity of the selected room type: " + types + " is " + totalCapacity);
+
         // Try
-//        MapNode fromNode = getMap().getNodeByCoord(from);
+        // MapNode fromNode = getMap().getNodeByCoord(from);
         SimMap map = getMap();
         List<MapNode> mapNodes = map.getNodes();
+        List<Map.Entry<Coord, Integer>> peoplesInRoom = peoplePerRoom.get(startingTime);
+        if (peoplesInRoom == null)
+            peoplesInRoom = new ArrayList<Map.Entry<Coord, Integer>>();
         MapNode nextNode;
         int counter = 0;
-        while(true) {
+        outer: while(true) {
             nextNode = mapNodes.get(rng.nextInt(mapNodes.size()));
-            if (possibleCoords.contains(nextNode.getLocation()))
-                break;
-            if (counter++ > 20000)
-                break;
+            if (possibleCoords.contains(nextNode.getLocation())) {
+                // Update the room capacity
+                int index = possibleCoords.indexOf(nextNode.getLocation());
+                for (int j = 0; j < peoplesInRoom.size(); ++j) {
+                    Map.Entry<Coord, Integer> roomMapping = peoplesInRoom.get(j);
+                    if (roomMapping.getKey().equals(nextNode.getLocation())) {
+                        if (roomMapping.getValue() > 0) {
+                            peoplesInRoom.get(j).setValue(roomMapping.getValue()-1);
+                            peoplePerRoom.put(startingTime, peoplesInRoom);
+                            break outer;
+                        }
+                        continue outer;
+                    }
+                }
+                // No entry is found
+                peoplesInRoom.add(new AbstractMap.SimpleEntry<>(possibleCoords.get(index), roomCapacities.get(index)));
+            }
+            if (counter++ > 10000) // Hard unlucky if this fails incorrectly
+                throw new RuntimeException("Failed to find nodes for type " + types + " (maybe because all rooms full (" + totalCapacity + "))");
         }
-        if (counter > 20000)
-            throw new RuntimeException("Failed to find nodes for type " + types);
         return nextNode;
     }
 
@@ -126,17 +156,18 @@ public class TimetableMovement extends MapBasedMovement {
             timetable = new HashMap<>();
         if (roomMapping == null)
             roomMapping = createRoomMapping();
+        if (peoplePerRoom == null)
+            peoplePerRoom = new HashMap<>();
 
         Settings settings = new Settings(TIMETABLE_MOVEMENT_NS);
         Settings scenarioSettings = new Settings(SimScenario.SCENARIO_NS);
-        double defDuration = settings.getDouble(DEF_DUR);
         double startTime = settings.getDouble(START_DAY_TIME);
         double endTime = settings.getDouble(END_DAY_TIME);
         double dayDuration = endTime - startTime;
         double steps = scenarioSettings.getDouble(SimScenario.END_TIME_S);
         double stepsPerHour = Math.floor(steps / dayDuration);
-
-        double activityGap = settings.getDouble(ACTIVITY_GAP) * (10.0/6);
+        double defDuration = settings.getDouble(DEF_DUR) * stepsPerHour;
+        double activityGap = settings.getDouble(ACTIVITY_GAP) * stepsPerHour;
 
         int numStartMap = settings.getInt(START_MAP_NUM);
         int[] probs = settings.getCsvInts(SPAWN_PROBS, 4);
@@ -169,30 +200,32 @@ public class TimetableMovement extends MapBasedMovement {
         // Currently randomly selected classroom
         int activites = settings.getInt(NUM_ACTIVITIES);
         double[] actProbs = settings.getCsvDoubles(ACT_PROBS, 4);
+        hostCounter = 0;
         for (int i = 0; i < actProbs.length; i++) {
             actProbs[i] = actProbs[i] / (double)100;
         }
 
-        // TODO: Implement the probabilities for the room selection
+        // Implementing a capacity limit per room, this way the probabilities should be more or less
+        // automatically correctly (i guess...)
         MapNode nextActivity;
-        double timeBeforeAct = startTime;
-        Vector<RoomType> morningTypes = new Vector<>(Arrays.asList(RoomType.SEMINAR_ROOM, RoomType.LECTURE_HALL));
-        Vector<RoomType> lunchTypes = new Vector<>(Arrays.asList(RoomType.MENSA));
-        Vector<RoomType> afternoonTypes = new Vector<>(Arrays.asList(RoomType.SEMINAR_ROOM, RoomType.PC_ROOM, RoomType.LECTURE_HALL, RoomType.LIBRARY, RoomType.TABLE));
+        double timeBeforeAct = 1.0; // Starting with the first iteration
+        Vector<RoomType> morningTypes = new Vector<>(Arrays.asList(RoomType.SEMINAR_ROOM, RoomType.LECTURE_HALL, RoomType.PC_ROOM, RoomType.LIBRARY));
+        Vector<RoomType> lunchTypes = new Vector<>(Arrays.asList(RoomType.MENSA, RoomType.LEISURE, RoomType.TABLE));
+        Vector<RoomType> afternoonTypes = new Vector<>(Arrays.asList(RoomType.SEMINAR_ROOM, RoomType.PC_ROOM, RoomType.LECTURE_HALL, RoomType.LIBRARY, RoomType.TABLE, RoomType.LEISURE));
         for (int i = 0; i < activites; i++) {
             if (timeBeforeAct < 12 * stepsPerHour) {
                 // Morning, learn or lecture
-                nextActivity = selectRandomNodeOfType(morningTypes);
+                nextActivity = selectRandomNodeOfType(morningTypes, timeBeforeAct);
             } else if (12 * stepsPerHour < timeBeforeAct && timeBeforeAct < 14 * stepsPerHour) {
                 // Eating
-                nextActivity = selectRandomNodeOfType(lunchTypes);
+                nextActivity = selectRandomNodeOfType(lunchTypes, timeBeforeAct);
             } else {
                 // Afternoon, both learning and leisure
-                nextActivity = selectRandomNodeOfType(afternoonTypes);
+                nextActivity = selectRandomNodeOfType(afternoonTypes, timeBeforeAct);
             }
             TimetableNode nextNode = new TimetableNode(nextActivity, timeBeforeAct, stepsPerHour);
             timeplan.add(nextNode);
-            timeBeforeAct += (defDuration + activityGap) * stepsPerHour;
+            timeBeforeAct += defDuration + activityGap;
         }
         // -------------------------------------------------------------------
 
@@ -202,6 +235,11 @@ public class TimetableMovement extends MapBasedMovement {
         timeplan.add(endNode);
 //        System.out.println("Timetable for " + userNum + " has " + timeplan.size() + " entries");
         timetable.put(userNum, timeplan);
+
+        if (userNum + 1 == nrofHosts) {
+            printTimetable();
+            printRoomOccupation();
+        }
 
         return timetable;
     }
@@ -266,6 +304,42 @@ public class TimetableMovement extends MapBasedMovement {
         }
         lastMapNode = nextNode;
         return p;
+    }
+
+    private static void printRoomOccupation() {
+        System.out.println("----------------------------------------------------------------------------");
+        System.out.println("Room Occupation");
+        System.out.println("----------------------------------------------------------------------------");
+        if (peoplePerRoom == null) {
+            return;
+        }
+        peoplePerRoom.forEach((e, v) -> {
+            StringBuilder list = new StringBuilder();
+            for (Map.Entry<Coord, Integer> node : v) {
+                list.append(node.getKey()).append(" ").append(node.getValue()).append(", ");
+            }
+            String nodes = list.substring(0, list.length()-2);
+            System.out.println("| " + e + " | " + nodes + " |");
+        });
+        System.out.println("----------------------------------------------------------------------------");
+    }
+
+    private static void printTimetable() {
+        System.out.println("----------------------------------------------------------------------------");
+        System.out.println("Timetable");
+        System.out.println("----------------------------------------------------------------------------");
+        if (timetable == null) {
+            return;
+        }
+        timetable.forEach((e, v) -> {
+            StringBuilder list = new StringBuilder();
+            for (TimetableNode node : v) {
+                list.append(node.toString()).append(", ");
+            }
+            String nodes = list.substring(0, list.length()-2);
+            System.out.println("| " + e + " | " + nodes + " |");
+        });
+        System.out.println("----------------------------------------------------------------------------");
     }
 
     @Override
