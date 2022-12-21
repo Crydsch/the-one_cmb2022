@@ -20,11 +20,17 @@ public class RumorRouter extends ActiveRouter {
 
 	/** Router namespace (where settings are looked up) */
 	public static final String ROUTER_NS = "RumorRouter";
+	/** mutation probability setting */
+	public static final String MUT_PROB_S = "mutationProbability";
 	/** routers rng seed */
 	public static final String RNG_SEED = "rngSeed";
 
 	/** rng for the rumor router */
 	protected static Random rng;
+	/** mutation count */
+	protected static int mut_count;
+	/** mutation probability */
+	protected static double mut_prob;
 
 	/**
 	 * Constructor. Creates a new message router based on the settings in
@@ -33,13 +39,13 @@ public class RumorRouter extends ActiveRouter {
 	 */
 	public RumorRouter(Settings s) {
 		super(s);
-		//TODO: read&use epidemic router specific settings (if any)
 
 		//TTL_CHECK_INTERVAL = 0; // TODO necessary?
 
+		Settings rs = new Settings(ROUTER_NS);
+
 		// Initialize rng
 		if (rng == null) {
-			Settings rs = new Settings(ROUTER_NS);
 			if (rs.contains(RNG_SEED)) {
 				int seed = rs.getInt(RNG_SEED);
 				rng = new Random(seed);
@@ -48,6 +54,16 @@ public class RumorRouter extends ActiveRouter {
 				rng = new Random(0);
 			}
 		}
+
+		// Settings and defaults
+		this.mut_count = 0;
+
+		if (rs.contains(MUT_PROB_S)) {
+			this.mut_prob = rs.getDouble(MUT_PROB_S);
+		} else {
+			this.mut_prob = 0.0;
+		}
+
 	}
 
 	/**
@@ -56,7 +72,16 @@ public class RumorRouter extends ActiveRouter {
 	 */
 	protected RumorRouter(RumorRouter r) {
 		super(r);
-		//TODO: copy epidemic settings here (if any)
+		this.rng = r.rng;
+		this.mut_prob = r.mut_prob;
+	}
+
+	/**
+	 * Checks whether a rumor should mutate or not, based on the mutation probability.
+	 * @return True if a rumor should mutate, false otherwise.
+	 */
+	protected boolean shouldMutateRumor() {
+		return rng.nextDouble() < mut_prob;
 	}
 
 	/**
@@ -71,15 +96,22 @@ public class RumorRouter extends ActiveRouter {
 		}
 
 		List<Message> allMessages = new ArrayList<Message>(this.getMessageCollection());
-		int rndMsg = rng.nextInt(allMessages.size());
+		int rndMsgIdx = rng.nextInt(allMessages.size());
+		final Message rndMsg = allMessages.get(rndMsgIdx);
 
 		List<Message> messages = new ArrayList();
-		messages.add(allMessages.get(rndMsg));
 
-		//Message m = allMessages.get(rndMsg).replicate();
-		//Message n = new Message(m.getFrom(), m.getTo(), "Rumor", m.getSize());
-		//n.copyFrom(m);
-		//messages.add()
+		if (shouldMutateRumor())
+		{
+			// Mutate random rumor message
+			String new_id = "R" + (1 + ++mut_count);
+			Message n = new Message(this.getHost(), rndMsg.getTo(), new_id, rndMsg.getSize());
+			//n.copyFrom(m);
+			messages.add(n);
+		} else {
+			// Just spread random rumor message
+			messages.add(rndMsg);
+		}
 
 		return tryMessagesToConnections(messages, connections);
 	}

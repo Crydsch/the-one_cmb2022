@@ -12,12 +12,14 @@ MovementModel.rngSeed = 0
 
 # Router Settings
 RumorRouter.rngSeed = 0
+RumorRouter.mutationProbability = 0.05
 
 # Define the students / moving nodes + destination node
 Scenario.nrofHostGroups = 2
 # Can take maximally 2 rumors
 Group.bufferSize = 1G
 Group.router = RumorRouter
+
 
 # The static destination node
 Group1.groupID = dest
@@ -36,7 +38,7 @@ myInterface.type = SimpleBroadcastInterface
 myInterface.transmitRange = 2
 # Transmit one rumor per less of 2 hours (roughly 1.5h)
 #  in Bps
-myInterface.transmitSpeed = 1.4k
+myInterface.transmitSpeed = 2.8k
 Group2.routeFile = data/TUM_MI_Faculty/tum_mi_l0.wkt
 Group2.routeType = 1
 Group2.speed = 2,2
