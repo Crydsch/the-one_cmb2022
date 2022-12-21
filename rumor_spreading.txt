@@ -77,7 +77,7 @@ TimetableMovement.defActivities = 4
 # Duration in hours
 TimetableMovement.defActivityDur = 2
 # Time in hours
-TimetableMovement.pauseBetweenActivities = .5
+TimetableMovement.pauseBetweenActivities = 0.5
 
 # --------------------------------------------------------------------
 # Reporting
