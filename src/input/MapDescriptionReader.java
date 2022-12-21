@@ -83,7 +83,7 @@ public class MapDescriptionReader {
                 Vector<String> roomDescription = parseDescription(line);
                 currType = convertNameToRoomType(roomDescription.get(0));
                 mapping.computeIfAbsent(currType, k -> new ArrayList<>());
-                capacity = Integer.getInteger(roomDescription.get(1));
+                capacity = Integer.parseInt(roomDescription.get(1));
             } else if (line.startsWith(LINESTRING)) {
                 String coordString = line.substring(LINESTRING.length()+2, line.length()-2);
                 Scanner s = new Scanner(coordString);
