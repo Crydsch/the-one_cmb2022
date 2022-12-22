@@ -197,7 +197,7 @@ def plotMultiMessageCount(args):
     
     # print(data.to_markdown())
 
-    plotLinestring(data, "Rumor Spread Count", xdata="Time", ydata="CopyCount", output=args.output, hue="Probability", ylabel="# Rumor Spreads", ylog=False, ymin=0, legendLabel="Mutation Probability")
+    plotLinestring(data, "Rumor Spread Count", xdata="Time", ydata="CopyCount", output=args.output, hue="Transmission Speed", ylabel="# Rumor Spreads", ylog=False, ymin=0, legendLabel="Transmission Speed (Kbit/s)")
     # plotBarplot(data, "Rumor Spread Count", xdata="Time", ydata="CopyCount", output=args.output, hue="Probability", ylabel="# Rumor Spreads", ymin=0, legendLabel="Mutation Probability")
 
 def parseMessageStats(path):
