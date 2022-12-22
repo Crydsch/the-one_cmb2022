@@ -38,7 +38,7 @@ public class TimetableMovement extends MapBasedMovement {
     public static final String DEF_DUR = "defActivityDur";
     public static final String ACTIVITY_GAP = "pauseBetweenActivities";
     public static final String SPAWN_PROBS = "spawnProbability";
-    public static final String ACT_PROBS = "activityProbability";
+//    public static final String ACT_PROBS = "activityProbability";
     public static final String VERBOSE = "verbose";
 
     public TimetableMovement(Settings settings) {
@@ -198,11 +198,11 @@ public class TimetableMovement extends MapBasedMovement {
         // Select daily activities
         // Currently randomly selected classroom
         int activites = settings.getInt(NUM_ACTIVITIES);
-        double[] actProbs = settings.getCsvDoubles(ACT_PROBS, 4);
-        hostCounter = 0;
-        for (int i = 0; i < actProbs.length; i++) {
-            actProbs[i] = actProbs[i] / (double)100;
-        }
+//        double[] actProbs = settings.getCsvDoubles(ACT_PROBS, 4);
+//        hostCounter = 0;
+//        for (int i = 0; i < actProbs.length; i++) {
+//            actProbs[i] = actProbs[i] / (double)100;
+//        }
 
         // Implementing a capacity limit per room, this way the probabilities should be more or less
         // automatically correctly (i guess...)
