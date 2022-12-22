@@ -1,5 +1,7 @@
 # The ONE
 
+A public mirror is available at [github.com](https://github.com/Crydsch/the-one)
+
 The Opportunistic Network Environment simulator.
 
 For introduction and releases, see [the ONE homepage at GitHub](http://akeranen.github.io/the-one/).
