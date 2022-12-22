@@ -56,6 +56,7 @@ def plotLinestring(df, title, xdata, ydata, output, ylabel=None, xlabel=None, le
         ax.set_yscale("log")
 
     exportToPdf(fig, output)
+    return fig
 
 
 def plotBarplot(df, title, xdata, ydata, output, ylabel=None, xlabel=None, legendLabel=None, xmin=0, ymin=0, hue=None):
@@ -82,6 +83,7 @@ def plotBarplot(df, title, xdata, ydata, output, ylabel=None, xlabel=None, legen
         plt.legend(title=legendLabel)
 
     exportToPdf(fig, output)
+    return fig
 
 def plotContactTimes(args):
     """
@@ -94,12 +96,13 @@ def plotContactTimes(args):
     df = pd.read_csv(contactTimePath, sep=" ", header=None, names=["time", "contactTime"])
     plotLinestring(df, "ContactTime", "time", "contactTime", args.output)
 
+
 def parseMessageCopyCount(path):
     """
     Parsing the message copy count report and returns a pandas dataframe.
     """
 
-    messageThreshold = 5
+    messageThreshold = 2
     totalThreshold = 1
     messageName = "R"
     data = []
