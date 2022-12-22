@@ -69,8 +69,8 @@ Group2.okMaps = 3
 # order as they appear in the wkt (main, east, west, south)
 TimetableMovement.spawnProbability = 65,10,20,5
 
-# Probability with which the nodes attend a lecture, seminar room, pc rooms/bib/tables, leisure
-TimetableMovement.activityProbability = 40,20,35,5
+# Probability with which the nodes attend a lecture, seminar room, pc rooms/bib/tables, leisure (CURRENTLY NOT IMPLEMENTED !!!)
+# TimetableMovement.activityProbability = 40,20,35,5
 TimetableMovement.verbose = false
 
 # Time in hours (7 == 07:00 in the morning, 21 == 21:00 in evening)
